@@ -17,6 +17,11 @@ return require('packer').startup(function(use)
     "mcchrish/zenbones.nvim",
     requires = "rktjmp/lush.nvim"
   }
+  use {
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.0',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
   use 'nvim-tree/nvim-tree.lua'
   use 'nvim-tree/nvim-web-devicons'
   use 'nvim-lualine/lualine.nvim'
@@ -37,7 +42,7 @@ return require('packer').startup(function(use)
       "saadparwaiz1/cmp_luasnip", -- Snippets source for nvim-cmp
       "L3MON4D3/LuaSnip", -- Snippets plugin
       "rafamadriz/friendly-snippets", -- Snippets collection
-      "onsails/lspkind-nvim", -- Pictograms for neovim lsp
+      "onsails/lspkind-nvim", -- Pictograms for LSP
     },
   }
 
@@ -46,12 +51,6 @@ return require('packer').startup(function(use)
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
-  }
-
-  use {
-    'nvim-telescope/telescope.nvim',
-    tag = '0.1.0',
-    requires = { {'nvim-lua/plenary.nvim'} }
   }
 
   -- Automatically set up your configuration after cloning packer.nvim

@@ -1,4 +1,4 @@
-require('plugin_conf.colorscheme')
+require('plugin_conf.ui')
 require('plugin_conf.gitsigns')
 require('plugin_conf.lualine')
 require('plugin_conf.nvim-tree')
