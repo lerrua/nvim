@@ -8,3 +8,12 @@ vim.opt.background = "light"
 require("indent_blankline").setup {
   show_current_context = true,
 }
+
+require("nvim-web-devicons").set_icon {
+  py = {
+    icon = "",
+    color = "#428850",
+    cterm_color = "65",
+    name = "Py"
+  }
+}
