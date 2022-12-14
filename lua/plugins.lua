@@ -17,16 +17,20 @@ return require('packer').startup(function(use)
     "mcchrish/zenbones.nvim",
     requires = "rktjmp/lush.nvim"
   }
-  use {
-    'nvim-telescope/telescope.nvim',
-    tag = '0.1.0',
-    requires = { {'nvim-lua/plenary.nvim'} }
-  }
   use 'nvim-tree/nvim-tree.lua'
   use 'nvim-tree/nvim-web-devicons'
   use 'nvim-lualine/lualine.nvim'
   use 'nvim-treesitter/nvim-treesitter'
   use 'lukas-reineke/indent-blankline.nvim'
+  use {
+    'akinsho/bufferline.nvim',
+    tag = "v3.*"
+  }
+  use {
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.0',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
 
   -- GIT
   use 'lewis6991/gitsigns.nvim'

@@ -5,6 +5,9 @@ vim.o.termguicolors = true
 vim.cmd "colorscheme rosebones"
 vim.opt.background = "light"
 
+-- tabs UI
+require("bufferline").setup()
+
 -- indent column colors
 require("indent_blankline").setup {
   show_current_context = true,
