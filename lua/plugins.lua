@@ -22,13 +22,32 @@ return require('packer').startup(function(use)
   use 'nvim-lualine/lualine.nvim'
   use 'nvim-treesitter/nvim-treesitter'
   use 'lukas-reineke/indent-blankline.nvim'
+
+  -- GIT
   use 'lewis6991/gitsigns.nvim'
 
+  -- Completion and Snippets
+  use {
+    "hrsh7th/nvim-cmp",
+    requires = {
+      "hrsh7th/cmp-nvim-lsp", -- LSP source for nvim-cmp
+      "hrsh7th/cmp-nvim-lua", -- LSP source for built-in LUA API
+      "hrsh7th/cmp-path", -- LSP source for filesystem paths
+      "hrsh7th/cmp-buffer", -- LSP source for buffer words
+      "saadparwaiz1/cmp_luasnip", -- Snippets source for nvim-cmp
+      "L3MON4D3/LuaSnip", -- Snippets plugin
+      "rafamadriz/friendly-snippets", -- Snippets collection
+      "onsails/lspkind-nvim", -- Pictograms for neovim lsp
+    },
+  }
+
+  -- LSP
   use {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
   }
+
   use {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.0',
