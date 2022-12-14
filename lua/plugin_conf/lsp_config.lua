@@ -1,9 +1,11 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
-  ensure_installed = { "sumneko_lua", "solargraph" }
+  ensure_installed = { "sumneko_lua", "solargraph", "pyright", "tsserver" }
 })
 
-local on_attach = function(_, _)
+local on_attach = function(_, bufnr)
+  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
   vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, {})
   vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
 
@@ -13,24 +15,19 @@ local on_attach = function(_, _)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
 end
 
-require("lspconfig").sumneko_lua.setup {
+require("lspconfig")['sumneko_lua'].setup {
   on_attach = on_attach,
-  -- settings = {
-  --   Lua = {
-  --     diagnostics = {
-  --       globals = { "vim" },
-  --     },
-  --     workspace = {
-  --       library = {
-  --         [vim.fn.expand "$VIMRUNTIME/lua"] = true,
-  --         [vim.fn.stdpath "config" .. "/lua"] = true,
-  --       },
-  --     },
-  --   },
-  -- }
 }
 
-require("lspconfig").solargraph.setup {
+require("lspconfig")['solargraph'].setup {
   on_attach = on_attach
 }
 
+require("lspconfig")['pyright'].setup {
+  on_attach = on_attach
+}
+
+require("lspconfig")['tsserver'].setup {
+  on_attach = on_attach,
+  filetypes = { "javascript", "typescript", "typescriptreact", "typescript.tsx" }
+}
