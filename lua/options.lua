@@ -34,7 +34,7 @@ vim.opt.expandtab = true
 
 vim.opt.guicursor = 'i:block'
 vim.opt.mouse = 'a'
-vim.opt.winbar = "%F"
+-- vim.opt.winbar = "%F"
 
 vim.opt.syntax = "enable"
 vim.opt.signcolumn = "yes"
