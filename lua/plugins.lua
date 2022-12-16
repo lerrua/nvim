@@ -22,10 +22,12 @@ return require('packer').startup(function(use)
   use 'nvim-lualine/lualine.nvim'
   use 'nvim-treesitter/nvim-treesitter'
   use 'lukas-reineke/indent-blankline.nvim'
+  use 'numToStr/Comment.nvim'
   use {
     'akinsho/bufferline.nvim',
     tag = "v3.*"
   }
+  use "folke/trouble.nvim"
   use {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.0',
