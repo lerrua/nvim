@@ -36,6 +36,10 @@ return require('packer').startup(function(use)
 
   -- GIT
   use 'lewis6991/gitsigns.nvim'
+  use {
+    'TimUntersberger/neogit',
+    requires = 'nvim-lua/plenary.nvim'
+  }
 
   -- Completion and Snippets
   use {
