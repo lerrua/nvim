@@ -1,4 +1,7 @@
+require("plugins")
 require("options")
 require("keymaps")
-require("plugins")
+require("ui")
+require("lsp")
+require("git")
 require("plugin_conf")

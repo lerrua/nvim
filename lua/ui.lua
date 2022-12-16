@@ -1,7 +1,6 @@
 vim.t_Co = 256
 vim.o.termguicolors = true
 
-require('neogit').setup()
 -- commentary
 require('Comment').setup()
 
