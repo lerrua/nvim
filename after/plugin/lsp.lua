@@ -1,6 +1,16 @@
+local lsp_langs = {
+  "sumneko_lua",
+  "solargraph",
+  "pyright",
+  "tsserver",
+  "eslint",
+  "rust_analyzer",
+  "gopls"
+}
+
 require("mason").setup()
 require("mason-lspconfig").setup({
-  ensure_installed = { "sumneko_lua", "solargraph", "pyright", "tsserver", "eslint", "rust_analyzer", "gopls" }
+  ensure_installed = lsp_langs
 })
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -13,6 +23,8 @@ local on_attach = function(_, _)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, {})
   vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, {})
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
+
+  vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, {})
 end
 
 require("lspconfig")['sumneko_lua'].setup {
@@ -96,6 +108,9 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = 'path' },
+    { name = 'buffer' },
+    { name = 'nvim_lsp_signature_help' },
   },
   formatting = {
     format = lspkind.cmp_format({

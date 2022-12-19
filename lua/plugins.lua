@@ -49,6 +49,7 @@ return require('packer').startup(function(use)
       "hrsh7th/cmp-nvim-lua", -- LSP source for built-in LUA API
       "hrsh7th/cmp-path", -- LSP source for filesystem paths
       "hrsh7th/cmp-buffer", -- LSP source for buffer words
+      "hrsh7th/cmp-nvim-lsp-signature-help", -- LSP source for displaying function signatures
       "saadparwaiz1/cmp_luasnip", -- Snippets source for nvim-cmp
       "L3MON4D3/LuaSnip", -- Snippets plugin
       "rafamadriz/friendly-snippets", -- Snippets collection
