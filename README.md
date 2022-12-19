@@ -1,3 +1,3 @@
 # nvim
 
-![alt text](https://github.com/lerrua/nvim/blob/main/asset/editor.png?raw=true)
+![screenshot](https://github.com/lerrua/nvim/blob/main/vim.png?raw=true)

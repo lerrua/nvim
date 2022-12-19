@@ -1,6 +1,6 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
-  ensure_installed = { "sumneko_lua", "solargraph", "pyright", "tsserver", "eslint", "rust_analyzer" }
+  ensure_installed = { "sumneko_lua", "solargraph", "pyright", "tsserver", "eslint", "rust_analyzer", "gopls" }
 })
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -36,6 +36,11 @@ require("lspconfig")['eslint'].setup {
 }
 
 require("lspconfig")['rust_analyzer'].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
+require("lspconfig")['gopls'].setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
