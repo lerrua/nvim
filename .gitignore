@@ -40,7 +40,7 @@ luac.out
 *.hex
 
 # packer
-plugin/
+packer_compiled.lua 
 
 # macos
 .DS_Store
