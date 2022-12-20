@@ -13,7 +13,7 @@ require("bufferline").setup()
 vim.keymap.set('n', '<Tab>', 'gt')
 vim.keymap.set('n', '<S-Tab>', 'gT')
 vim.keymap.set('n', '<S-t>', ':tabnew<CR>')
-vim.keymap.set('n', 'leader>z', ':tabnew %<CR>')
+vim.keymap.set('n', '<leader>z', ':tabnew %<CR>')
 
 -- indent column colors
 require("indent_blankline").setup {
