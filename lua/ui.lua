@@ -1,9 +1,6 @@
 vim.t_Co = 256
 vim.o.termguicolors = true
 
--- commentary
-require('Comment').setup()
-
 -- colorscheme
 vim.cmd "colorscheme rosebones"
 vim.opt.background = "light"
