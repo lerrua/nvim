@@ -23,6 +23,7 @@ return require('packer').startup(function(use)
   use 'nvim-treesitter/nvim-treesitter'
   use 'lukas-reineke/indent-blankline.nvim'
   use 'numToStr/Comment.nvim'
+  use { 'akinsho/toggleterm.nvim', tag = '*' }
   use {
     'akinsho/bufferline.nvim',
     tag = "v3.*"
@@ -33,6 +34,7 @@ return require('packer').startup(function(use)
     tag = '0.1.0',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   -- GIT
   use 'lewis6991/gitsigns.nvim'
