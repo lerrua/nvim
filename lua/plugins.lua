@@ -23,6 +23,10 @@ return require('packer').startup(function(use)
   use 'nvim-treesitter/nvim-treesitter'
   use 'lukas-reineke/indent-blankline.nvim'
   use 'numToStr/Comment.nvim'
+  use 'rcarriga/nvim-notify'
+  use 'stevearc/aerial.nvim'
+  use 'm4xshen/autoclose.nvim'
+  use 'j-hui/fidget.nvim'
   use { 'akinsho/toggleterm.nvim', tag = '*' }
   use {
     'akinsho/bufferline.nvim',

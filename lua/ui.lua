@@ -5,6 +5,20 @@ vim.o.termguicolors = true
 vim.cmd "colorscheme rosebones"
 vim.opt.background = "light"
 
+-- fancy notifications
+require("notify").setup()
+
+-- loading animations
+require("fidget").setup({
+  text = {
+    spinner = "dots_negative",
+  }
+})
+
+-- tags list
+require('aerial').setup()
+vim.api.nvim_set_keymap("n", "<F10>", ":AerialToggle<CR>", { noremap = true })
+
 -- tabs UI
 require("bufferline").setup()
 vim.keymap.set('n', '<Tab>', 'gt')
