@@ -1,19 +1,19 @@
 vim.t_Co = 256
 vim.o.termguicolors = true
 
--- colorscheme
+-- colorscheme settings
+local hr = tonumber(os.date('%H', os.time()))
+if hr > 7 and hr < 17 then -- day between 7AM and 5PM
+  vim.opt.background = "light"
+else
+  vim.opt.background = "dark"
+end
+
+vim.g.rosebones = { darkness = 'warm', lighten_comments = 48, lightness = "dim" }
 vim.cmd "colorscheme rosebones"
-vim.opt.background = "light"
 
 -- fancy notifications
 require("notify").setup()
-
--- loading animations
-require("fidget").setup({
-  text = {
-    spinner = "dots_negative",
-  }
-})
 
 -- tags list
 require('aerial').setup()
