@@ -10,6 +10,7 @@ require('telescope').setup(
 require('telescope').load_extension('fzf')
 require('telescope').load_extension('file_browser')
 
+-- keymaps
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<space>e', builtin.find_files, {})
 vim.keymap.set('n', '<space><space>', builtin.oldfiles, {})

@@ -3,7 +3,7 @@ vim.o.termguicolors = true
 
 -- Colorscheme settings
 local hr = tonumber(os.date('%H', os.time()))
-if hr > 7 and hr < 17 then -- day between 7AM and 5PM
+if hr > 7 and hr < 17 then -- local time between 7AM and 5PM
   vim.opt.background = "light"
   vim.cmd "colorscheme rosebones"
 else
