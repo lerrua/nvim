@@ -17,8 +17,11 @@ return require('packer').startup(function(use)
     "mcchrish/zenbones.nvim",
     requires = "rktjmp/lush.nvim"
   }
+  use 'rose-pine/neovim'
+  use 'stevearc/dressing.nvim'
   use 'nvim-tree/nvim-tree.lua'
   use 'nvim-tree/nvim-web-devicons'
+  use {'romgrk/barbar.nvim', wants = 'nvim-web-devicons'}
   use 'nvim-lualine/lualine.nvim'
   use 'nvim-treesitter/nvim-treesitter'
   use 'lukas-reineke/indent-blankline.nvim'
@@ -28,10 +31,6 @@ return require('packer').startup(function(use)
   use 'm4xshen/autoclose.nvim'
   use 'j-hui/fidget.nvim'
   use { 'akinsho/toggleterm.nvim', tag = '*' }
-  use {
-    'akinsho/bufferline.nvim',
-    tag = "v3.*"
-  }
   use "folke/trouble.nvim"
   use {
     'nvim-telescope/telescope.nvim',
@@ -69,6 +68,11 @@ return require('packer').startup(function(use)
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
+  }
+
+  use {
+    "SmiteshP/nvim-navic",
+    requires = "neovim/nvim-lspconfig"
   }
 
   -- Automatically set up your configuration after cloning packer.nvim
