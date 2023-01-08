@@ -17,3 +17,6 @@ vim.keymap.set('n', '<leader>z', ':tabnew %<CR>')
 
 -- Buffers navigation
 vim.keymap.set('n', '<BS>', ':bprevious<CR>')
+
+vim.keymap.set('n', 'q', ':q<CR>')
+vim.keymap.set('n', '<leader>w', ':w<CR>')
