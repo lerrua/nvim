@@ -1,9 +1,6 @@
 vim.t_Co = 256
 vim.opt.termguicolors = true
 
--- winbar
--- vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
-
 require('rose-pine').setup({
 	dark_variant = 'moon',
   highlight_groups = {
