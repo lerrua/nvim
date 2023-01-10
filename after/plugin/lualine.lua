@@ -32,18 +32,22 @@ local function custom_vim_mode()
   return mode_label[vim.fn.mode()]
 end
 
+local function custom_lsp_navic_output()
+  local navic_message = "%{%v:lua.require'nvim-navic'.get_location()%}"
+  return navic_message
+end
+
 require('lualine').setup {
   options = {
-    -- theme = 'tokyonight',
     icons_enabled = true,
     component_separators = '',
     section_separators = { left = '', right = '' },
     globalstatus = true,
   },
   sections = {
-    lualine_a = { custom_vim_mode },
+    lualine_a = {custom_vim_mode},
     lualine_b = {},
-    lualine_c = {'branch', 'diff', 'diagnostics'},
+    lualine_c = {'branch', 'diff', 'diagnostics', custom_lsp_navic_output},
     lualine_x = {'filetype'},
     lualine_y = {},
   }
