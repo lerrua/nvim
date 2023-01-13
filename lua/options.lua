@@ -24,7 +24,7 @@ vim.opt.cursorline = true
 vim.opt.autoread = true
 
 vim.opt.showtabline = 1
-vim.opt.showbreak = '↪'
+vim.opt.showbreak = '↪ '
 
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
