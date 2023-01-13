@@ -17,6 +17,10 @@ vim.keymap.set('n', '<S-Tab>', 'gT', opts)
 vim.keymap.set('n', '<S-t>', ':tabnew<CR>', opts)
 vim.keymap.set('n', '<leader>z', ':tabnew %<CR>', opts)
 
+-- Window navigation
+vim.keymap.set('n', '<leader>h', ':sp<CR>', opts)
+vim.keymap.set('n', '<leader>v', ':vsp<CR>', opts)
+
 -- Buffers navigation
 vim.keymap.set('n', '<BS>', ':bprevious<CR>', opts)
 
