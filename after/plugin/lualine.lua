@@ -46,8 +46,8 @@ require('lualine').setup {
   },
   sections = {
     lualine_a = {custom_vim_mode},
-    lualine_b = {},
-    lualine_c = {'branch', 'diff', 'diagnostics', custom_lsp_navic_output},
+    lualine_b = {'branch'},
+    lualine_c = {'diff', 'diagnostics', custom_lsp_navic_output},
     lualine_x = {'filetype'},
     lualine_y = {},
   }
