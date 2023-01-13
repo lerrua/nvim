@@ -3,9 +3,10 @@ vim.opt.termguicolors = true
 
 require('rose-pine').setup({
 	dark_variant = 'moon',
+  disable_italics = true,
   highlight_groups = {
-    Character = { fg = 'rose' },
-    String = { fg = 'rose' }
+    Character = { fg = 'foam' },
+    String = { fg = 'iris' }
   }
 })
 
