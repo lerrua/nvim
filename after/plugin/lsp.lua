@@ -8,13 +8,22 @@ local lsp_langs = {
   "gopls"
 }
 
-require("mason").setup()
+require("mason").setup({
+  ui = {
+    border = "rounded",
+  }
+})
+
 require("mason-lspconfig").setup({
   ensure_installed = lsp_langs
 })
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local navic = require("nvim-navic")
+
+navic.setup({
+  highlight = true,
+})
 
 local on_attach = function(client, bufnr)
   if client.server_capabilities.documentSymbolProvider then
@@ -29,7 +38,16 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, {})
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
 
-  vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, {})
+  -- format on save
+  vim.api.nvim_create_autocmd('BufWritePre', {
+    group = vim.api.nvim_create_augroup('LspFormatting', { clear = true }),
+    buffer = bufnr,
+    callback = function()
+      if client.supports_method("textDocument/formatting") then
+        vim.lsp.buf.format()
+      end
+    end
+  })
 end
 
 require("lspconfig")['sumneko_lua'].setup {
