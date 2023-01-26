@@ -1,12 +1,53 @@
 vim.t_Co = 256
 vim.opt.termguicolors = true
 
+function string:split(sep)
+  local sep, fields = sep or ":", {}
+  local pattern = string.format("([^%s]+)", sep)
+  self:gsub(pattern, function(c) fields[#fields + 1] = c end)
+  return fields
+end
+
+-- winbar
+local winbar_highlight = 'TabLineSel'
+vim.api.nvim_create_autocmd('BufWinEnter', {
+  pattern = '*',
+  callback = function()
+    -- skip if a pop up window
+    if vim.fn.win_gettype() == 'popup' then
+      return
+    end
+
+    -- skip if new buffer
+    if vim.bo.filetype == '' then
+      return
+    end
+
+    -- get the current folder and file name
+    local file_path = vim.api.nvim_eval_statusline('%F', {}).str
+    file_path = file_path:split('/')
+    table.remove(file_path, #file_path)
+
+    local path = file_path[#file_path]
+
+    vim.wo.winbar = '  ' .. path .. ' > ' .. ' ' ..
+        '%t' .. ' > ' .. "%{%v:lua.require'nvim-navic'.get_location()%}"
+  end,
+})
+
 require('rose-pine').setup({
-	dark_variant = 'moon',
-  disable_italics = true,
+  dark_variant = 'moon',
   highlight_groups = {
     Character = { fg = 'foam' },
-    String = { fg = 'iris' }
+    String = { fg = 'iris' },
+    TSParameter = { fg = 'iris' },
+    TSProperty = { fg = 'iris' },
+    TSVariable = { fg = 'text' },
+    WinBar = { link = winbar_highlight },
+    ['@parameter'] = { fg = 'iris', italic = false },
+    ['@property'] = { fg = 'iris', italic = false },
+    ['@text.emphasis'] = { italic = false },
+    ['@variable'] = { fg = 'text', italic = false, bold = true },
   }
 })
 
