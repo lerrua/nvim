@@ -17,7 +17,7 @@ vim.opt.ignorecase = true
 vim.opt.incsearch = true
 
 vim.opt.backspace = '2'
-vim.opt.showcmd = false
+vim.opt.showcmd = true
 vim.opt.cmdheight = 1
 vim.opt.autowrite = true
 vim.opt.cursorline = true
