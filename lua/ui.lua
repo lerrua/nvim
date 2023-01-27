@@ -33,7 +33,7 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
     end
 
     local separator = ' > '
-    vim.wo.winbar = '  ' .. path .. separator .. ' ' ..
+    vim.wo.winbar = '▎ ' .. path .. separator .. ' ' ..
         '%t' .. separator .. "%{%v:lua.require'nvim-navic'.get_location()%}"
   end,
 })
@@ -55,7 +55,7 @@ require('rose-pine').setup({
 })
 
 local hr = tonumber(os.date('%H', os.time()))
-if hr > 6 and hr < 18 then -- local time between 6AM and 5PM
+if hr > 6 and hr < 18 then -- local time between 6AM and 6PM
   vim.opt.background = "light"
 else
   vim.opt.background = "dark"
