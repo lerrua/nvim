@@ -1,12 +1,7 @@
+require("utils")
+
 vim.t_Co = 256
 vim.opt.termguicolors = true
-
-function string:split(sep)
-  local sep, fields = sep or ":", {}
-  local pattern = string.format("([^%s]+)", sep)
-  self:gsub(pattern, function(c) fields[#fields + 1] = c end)
-  return fields
-end
 
 -- winbar
 local winbar_highlight = 'TabLineSel'
@@ -25,13 +20,21 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
 
     -- get the current folder and file name
     local file_path = vim.api.nvim_eval_statusline('%F', {}).str
+    if file_path == nil then
+      return
+    end
+
     file_path = file_path:split('/')
     table.remove(file_path, #file_path)
 
     local path = file_path[#file_path]
+    if path == nil then
+      return
+    end
 
-    vim.wo.winbar = '  ' .. path .. ' > ' .. ' ' ..
-        '%t' .. ' > ' .. "%{%v:lua.require'nvim-navic'.get_location()%}"
+    local separator = ' > '
+    vim.wo.winbar = '  ' .. path .. separator .. ' ' ..
+        '%t' .. separator .. "%{%v:lua.require'nvim-navic'.get_location()%}"
   end,
 })
 
