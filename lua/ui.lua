@@ -4,7 +4,7 @@ vim.t_Co = 256
 vim.opt.termguicolors = true
 
 -- winbar
-local winbar_highlight = 'TabLineSel'
+local rose_bones_winbar = 'TabLineSel'
 vim.api.nvim_create_autocmd('BufWinEnter', {
   pattern = '*',
   callback = function()
@@ -32,11 +32,31 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
       return
     end
 
+    -- get the file icon
+    local bufnr = vim.api.nvim_get_current_buf()
+    local file_type = vim.fn.getbufvar(bufnr, '&filetype')
+    local icon = require('nvim-web-devicons').get_icon_by_filetype(file_type)
+
+    -- set the winbar
     local separator = ' > '
-    vim.wo.winbar = '▎ ' .. path .. separator .. ' ' ..
+    vim.wo.winbar = '▎ ' .. path .. separator .. icon .. ' ' ..
         '%t' .. separator .. "%{%v:lua.require'nvim-navic'.get_location()%}"
   end,
 })
+
+local hr = tonumber(os.date('%H', os.time()))
+local colorscheme = 'catppuccin-frappe'
+if hr > 18 or hr < 6 then -- dark mode on local time between 6PM and 6AM
+  colorscheme = 'catppuccin'
+end
+
+require("catppuccin").setup {
+  custom_highlights = function(colors)
+    return {
+      WinBar = { fg = colors.rosewater, bg = colors.mantle, style = { 'italic' } },
+    }
+  end
+}
 
 require('rose-pine').setup({
   dark_variant = 'moon',
@@ -46,7 +66,11 @@ require('rose-pine').setup({
     TSParameter = { fg = 'iris' },
     TSProperty = { fg = 'iris' },
     TSVariable = { fg = 'text' },
-    WinBar = { link = winbar_highlight },
+    DiagnosticVirtualTextError = { fg = 'love', bg = 'overlay' },
+    DiagnosticVirtualTextHint = { fg = 'iris', bg = 'overlay' },
+    DiagnosticVirtualTextInfo = { fg = 'foam', bg = 'overlay' },
+    DiagnosticVirtualTextWarn = { fg = 'gold', bg = 'overlay' },
+    WinBar = { link = rose_bones_winbar },
     ['@parameter'] = { fg = 'iris', italic = false },
     ['@property'] = { fg = 'iris', italic = false },
     ['@text.emphasis'] = { italic = false },
@@ -54,13 +78,7 @@ require('rose-pine').setup({
   }
 })
 
-local hr = tonumber(os.date('%H', os.time()))
-if hr > 6 and hr < 18 then -- local time between 6AM and 6PM
-  vim.opt.background = "light"
-else
-  vim.opt.background = "dark"
-end
-vim.cmd("colorscheme rose-pine")
+vim.cmd("colorscheme " .. colorscheme)
 
 -- UI improvements
 require('dressing').setup()

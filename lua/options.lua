@@ -23,7 +23,7 @@ vim.opt.autowrite = true
 vim.opt.cursorline = true
 vim.opt.autoread = true
 
-vim.opt.showtabline = 1
+vim.opt.showtabline = 0 -- without tabline
 vim.opt.showbreak = '↪ '
 
 vim.opt.tabstop = 2
