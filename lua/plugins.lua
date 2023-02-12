@@ -18,10 +18,11 @@ return require('packer').startup(function(use)
     requires = "rktjmp/lush.nvim"
   }
   use 'rose-pine/neovim'
+  use { "catppuccin/nvim", as = "catppuccin" }
   use 'stevearc/dressing.nvim'
   use 'nvim-tree/nvim-tree.lua'
   use 'nvim-tree/nvim-web-devicons'
-  use { 'romgrk/barbar.nvim', wants = 'nvim-web-devicons' }
+  -- use { 'romgrk/barbar.nvim', requires = 'nvim-web-devicons' } -- aka bufferline
   use 'nvim-lualine/lualine.nvim'
   use 'nvim-treesitter/nvim-treesitter'
   use 'lukas-reineke/indent-blankline.nvim'

@@ -51,8 +51,8 @@ require('lualine').setup {
   },
   sections = {
     lualine_a = { custom_vim_mode },
-    lualine_b = { 'branch' },
-    lualine_c = {},
+    lualine_b = {},
+    lualine_c = { 'branch' },
     lualine_x = { 'diff', 'diagnostics' },
     lualine_y = {},
   }
