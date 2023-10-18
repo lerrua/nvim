@@ -22,7 +22,10 @@ vim.keymap.set('n', '<leader>h', '<CMD>sp<CR>', opts)
 vim.keymap.set('n', '<leader>v', '<CMD>vsp<CR>', opts)
 
 -- Buffers navigation
-vim.keymap.set('n', '<BS>', '<CMD>bprevious<CR>', opts)
+vim.keymap.set('n', '<S-BS>', '<CMD>bprevious<CR>', opts)
 
 vim.keymap.set('n', 'q', '<CMD>q<CR>', opts)
 vim.keymap.set('n', '<leader>w', '<CMD>write<CR>', opts)
+
+-- Replace inside word
+vim.keymap.set('n', '<CR>', 'ciw', opts)

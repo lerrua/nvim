@@ -1,5 +1,4 @@
 local lsp_langs = {
-  "sumneko_lua",
   "solargraph",
   "pyright",
   "tsserver",
@@ -37,6 +36,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, {})
   vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, {})
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
+  vim.keymap.set('n', 'F', vim.lsp.buf.format, {})
 
   -- format on save
   vim.api.nvim_create_autocmd('BufWritePre', {
@@ -49,11 +49,6 @@ local on_attach = function(client, bufnr)
     end
   })
 end
-
-require("lspconfig")['sumneko_lua'].setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-}
 
 require("lspconfig")['solargraph'].setup {
   on_attach = on_attach,
@@ -101,6 +96,7 @@ cmp.setup {
       luasnip.lsp_expand(args.body)
     end,
   },
+  Preselect = cmp.PreselectMode.None, -- don't preselect
   window = {
     completion = cmp.config.window.bordered(),
     documentation = cmp.config.window.bordered(),

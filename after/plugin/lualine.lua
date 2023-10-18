@@ -32,16 +32,6 @@ local function custom_vim_mode()
   return mode_label[vim.fn.mode()]
 end
 
-local function custom_lsp_navic_output()
-  local navic = require("nvim-navic")
-  local navic_message = ''
-
-  if navic.is_available() then
-    navic_message = " %t > %{%v:lua.require'nvim-navic'.get_location()%}"
-  end
-  return navic_message
-end
-
 require('lualine').setup {
   options = {
     icons_enabled = true,
