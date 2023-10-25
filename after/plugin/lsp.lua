@@ -1,3 +1,5 @@
+-- LSP setup definitions
+
 local lsp_langs = {
   "solargraph",
   "pyright",
@@ -17,6 +19,9 @@ require("mason-lspconfig").setup({
   ensure_installed = lsp_langs
 })
 
+require("symbols-outline").setup()
+vim.keymap.set('n', '<F9>', '<CMD>SymbolsOutline<CR>', {})
+
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local navic = require("nvim-navic")
 
@@ -25,6 +30,8 @@ navic.setup({
 })
 
 local on_attach = function(client, bufnr)
+  local opts = { buffer = bufnr, remap = false }
+
   if client.server_capabilities.documentSymbolProvider then
     navic.attach(client, bufnr)
   end
@@ -37,6 +44,13 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, {})
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
   vim.keymap.set('n', 'F', vim.lsp.buf.format, {})
+  vim.keymap.set("n", "<leader>ed", function() vim.lsp.buf.declaration() end, opts)
+  vim.keymap.set("n", "<leader>gI", function() vim.lsp.buf.implementation() end, opts)
+  vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
+  vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
+  vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
+  vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
+  vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 
   -- format on save
   vim.api.nvim_create_autocmd('BufWritePre', {

@@ -102,6 +102,7 @@ return require('packer').startup(function(use)
     "SmiteshP/nvim-navic",
     requires = "neovim/nvim-lspconfig"
   }
+  use 'simrat39/symbols-outline.nvim'
 
   -- Golang
   use 'ray-x/go.nvim'
