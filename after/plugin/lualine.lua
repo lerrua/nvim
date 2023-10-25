@@ -38,6 +38,8 @@ require('lualine').setup {
     component_separators = '',
     section_separators = { left = '', right = '' },
     globalstatus = true,
+    symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '},
+    colored = false
   },
   sections = {
     lualine_a = { custom_vim_mode },
