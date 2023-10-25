@@ -1,7 +1,7 @@
 require('telescope').setup(
   {
     defaults = {
-      prompt_prefix = '🔭 ',
+      prompt_prefix = '🔍 ',
     },
     pickers = {
       find_files = { theme = "dropdown", previewer = false },
