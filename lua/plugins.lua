@@ -67,6 +67,8 @@ return require('packer').startup(function(use)
     }
   })
 
+  use 'nvim-pack/nvim-spectre'
+
   -- GIT
   use 'lewis6991/gitsigns.nvim'
   use {
