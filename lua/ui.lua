@@ -4,8 +4,9 @@ require("utils")
 vim.t_Co = 256
 vim.opt.termguicolors = true
 vim.opt.background = "light"
-local colorscheme = 'rosebones'
+local colorscheme = 'zenbones'
 -- other colorscheme options
+-- local colorscheme = 'rosebones'
 -- local colorscheme = 'catppuccin-frappe'
 -- local colorscheme = 'catppuccin-latte'
 

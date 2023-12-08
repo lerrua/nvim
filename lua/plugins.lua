@@ -98,7 +98,7 @@ return require('packer').startup(function(use)
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
   }
-  use 'jose-elias-alvarez/null-ls.nvim'
+  use 'nvimtools/none-ls.nvim'
 
   use {
     "SmiteshP/nvim-navic",
