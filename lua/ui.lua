@@ -5,6 +5,8 @@ vim.t_Co = 256
 vim.opt.termguicolors = true
 vim.opt.background = "light"
 local colorscheme = 'zenbones'
+-- local colorscheme = 'nano-theme'
+
 -- other colorscheme options
 -- local colorscheme = 'rosebones'
 -- local colorscheme = 'catppuccin-frappe'

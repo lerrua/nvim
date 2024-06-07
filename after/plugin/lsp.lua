@@ -1,7 +1,6 @@
 -- LSP setup definitions
 
 local lsp_langs = {
-  "solargraph",
   "pyright",
   "tsserver",
   "eslint",
@@ -63,11 +62,6 @@ local on_attach = function(client, bufnr)
     end
   })
 end
-
-require("lspconfig")['solargraph'].setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-}
 
 require("lspconfig")['pyright'].setup {
   on_attach = on_attach,

@@ -19,8 +19,10 @@ return require('packer').startup(function(use)
     requires = "rktjmp/lush.nvim"
   }
   use { "catppuccin/nvim", as = "catppuccin" }
+  use { "ronisbr/nano-theme.nvim" }
 
   use 'stevearc/dressing.nvim'
+
   use 'nvim-tree/nvim-tree.lua'
   use {
   "nvim-neo-tree/neo-tree.nvim",
@@ -41,7 +43,7 @@ return require('packer').startup(function(use)
   use 'm4xshen/autoclose.nvim'
   use 'j-hui/fidget.nvim'
   use { 'akinsho/toggleterm.nvim', tag = '*' }
-  use "folke/trouble.nvim"
+  use {"folke/trouble.nvim", branch = "dev"}
   use 'github/copilot.vim'
   use {
     'nvim-telescope/telescope.nvim',
@@ -67,13 +69,20 @@ return require('packer').startup(function(use)
     }
   })
 
-  use 'nvim-pack/nvim-spectre'
+  -- use 'nvim-pack/nvim-spectre'
 
   -- GIT
   use 'lewis6991/gitsigns.nvim'
   use {
-    'TimUntersberger/neogit',
-    requires = 'nvim-lua/plenary.nvim'
+    'NeogitOrg/neogit',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      "sindrets/diffview.nvim"
+    }
+  }
+  use {
+    'iberianpig/tig-explorer.vim',
+    requires = { 'rbgrouleff/bclose.vim' }
   }
 
   -- Completion and Snippets

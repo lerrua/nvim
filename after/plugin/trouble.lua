@@ -1,5 +1,5 @@
 -- diagnostics and quickfix list plugin
-require("trouble").setup()
+-- require("trouble").setup()
 
 -- Disable virtual text
 vim.diagnostic.config({ virtual_text = false })
