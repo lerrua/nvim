@@ -37,7 +37,7 @@ return require('packer').startup(function(use)
   use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
   use 'nvim-lualine/lualine.nvim'
   use 'nvim-treesitter/nvim-treesitter'
-  use 'lukas-reineke/indent-blankline.nvim'
+  -- use 'lukas-reineke/indent-blankline.nvim'
   use 'numToStr/Comment.nvim'
   use 'rcarriga/nvim-notify'
   use 'm4xshen/autoclose.nvim'
@@ -69,12 +69,16 @@ return require('packer').startup(function(use)
     }
   })
 
+  use {'nvchad/volt', lazy = true}
+  use {'nvchad/menu', lazy = true}
+
   -- use 'nvim-pack/nvim-spectre'
 
   -- GIT
   use 'lewis6991/gitsigns.nvim'
   use {
     'NeogitOrg/neogit',
+    tag = 'v0.0.1',
     requires = {
       'nvim-lua/plenary.nvim',
       "sindrets/diffview.nvim"
@@ -84,6 +88,12 @@ return require('packer').startup(function(use)
     'iberianpig/tig-explorer.vim',
     requires = { 'rbgrouleff/bclose.vim' }
   }
+  use({
+    "kdheepak/lazygit.nvim",
+    requires = {
+        "nvim-lua/plenary.nvim",
+    },
+  })
 
   -- Completion and Snippets
   use({ "L3MON4D3/LuaSnip", tag = "v2.*", run = "make install_jsregexp" })
@@ -122,4 +132,11 @@ return require('packer').startup(function(use)
   if packer_bootstrap then
     require('packer').sync()
   end
+
+  -- PlantUML
+  use {
+    'https://gitlab.com/itaranto/plantuml.nvim',
+    tag = '*',
+    config = function() require('plantuml').setup() end
+  }
 end)

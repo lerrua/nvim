@@ -18,7 +18,7 @@ vim.g.loaded_netrwPlugin = 1
 --   }
 -- })
 
-require("nvim-tree").setup({})
+require("nvim-tree").setup({view = {width = '40%'}})
 
 local opts = { remap = false, silent = true }
 

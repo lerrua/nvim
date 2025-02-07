@@ -2,7 +2,8 @@
 
 local lsp_langs = {
   "pyright",
-  "tsserver",
+  "ruff",
+  "ts_ls",
   "eslint",
   "rust_analyzer",
   "gopls"
@@ -33,6 +34,11 @@ local on_attach = function(client, bufnr)
 
   if client.server_capabilities.documentSymbolProvider then
     navic.attach(client, bufnr)
+  end
+
+  if client.name == 'ruff' then
+    -- Disable hover in favor of Pyright
+    client.server_capabilities.hoverProvider = false
   end
 
   vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, {})
@@ -68,6 +74,11 @@ require("lspconfig")['pyright'].setup {
   capabilities = capabilities,
 }
 
+require("lspconfig")['ruff'].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
 require("lspconfig")['eslint'].setup {
   on_attach = on_attach,
   capabilities = capabilities,
@@ -83,7 +94,7 @@ require("lspconfig")['gopls'].setup {
   capabilities = capabilities,
 }
 
-require("lspconfig")['tsserver'].setup {
+require("lspconfig")['ts_ls'].setup {
   on_attach = on_attach,
   capabilities = capabilities,
   filetypes = { "javascript", "typescript", "typescriptreact", "typescript.tsx" }

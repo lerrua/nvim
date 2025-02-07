@@ -11,6 +11,7 @@ local colorscheme = 'zenbones'
 -- local colorscheme = 'rosebones'
 -- local colorscheme = 'catppuccin-frappe'
 -- local colorscheme = 'catppuccin-latte'
+local colorscheme = 'catppuccin-mocha'
 
 local hr = tonumber(os.date('%H', os.time()))
 if hr > 18 or hr < 7 then -- dark mode on local time between 6PM and 7AM
