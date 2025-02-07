@@ -1,5 +1,5 @@
 -- Keyboard users
-vim.keymap.set("n", "<SPACE-m>", function()
+vim.keymap.set("n", "<C-c>", function()
   require("menu").open("default")
 end, {})
 

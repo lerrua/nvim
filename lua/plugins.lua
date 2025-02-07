@@ -37,7 +37,7 @@ return require('packer').startup(function(use)
   use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
   use 'nvim-lualine/lualine.nvim'
   use 'nvim-treesitter/nvim-treesitter'
-  -- use 'lukas-reineke/indent-blankline.nvim'
+  use 'lukas-reineke/indent-blankline.nvim'
   use 'numToStr/Comment.nvim'
   use 'rcarriga/nvim-notify'
   use 'm4xshen/autoclose.nvim'
@@ -78,7 +78,6 @@ return require('packer').startup(function(use)
   use 'lewis6991/gitsigns.nvim'
   use {
     'NeogitOrg/neogit',
-    tag = 'v0.0.1',
     requires = {
       'nvim-lua/plenary.nvim',
       "sindrets/diffview.nvim"
