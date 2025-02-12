@@ -29,7 +29,7 @@ return require('packer').startup(function(use)
     branch = "v3.x",
     requires = { 
       "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
     }
   }
@@ -47,11 +47,12 @@ return require('packer').startup(function(use)
   use 'github/copilot.vim'
   use {
     'nvim-telescope/telescope.nvim',
-    tag = '0.1.4',
+    tag = '0.1.8',
     requires = { { 'nvim-lua/plenary.nvim' } }
   }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use { "nvim-telescope/telescope-file-browser.nvim" }
+  use { "nvim-telescope/telescope-ui-select.nvim" }
 
   use {
     "folke/todo-comments.nvim",
@@ -117,12 +118,26 @@ return require('packer').startup(function(use)
     "neovim/nvim-lspconfig",
   }
   use 'nvimtools/none-ls.nvim'
+  use 'nvimtools/none-ls-extras.nvim'
 
   use {
     "SmiteshP/nvim-navic",
     requires = "neovim/nvim-lspconfig"
   }
   use 'simrat39/symbols-outline.nvim'
+
+  use({
+    "utilyre/barbecue.nvim",
+    tag = "*",
+    requires = {
+      "SmiteshP/nvim-navic",
+      "nvim-tree/nvim-web-devicons",
+    },
+    after = "nvim-web-devicons",
+    config = function()
+      require("barbecue").setup()
+    end,
+  })
 
   -- Golang
   use 'ray-x/go.nvim'

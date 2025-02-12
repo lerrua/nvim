@@ -1,7 +1,7 @@
 local function custom_vim_mode()
-  local default_icon = ' '
-  local insert_mode_icon = ' '
-  local terminal_mode_icon = ' '
+  local default_icon = ''
+  local insert_mode_icon = ''
+  local terminal_mode_icon = ''
 
   -- auto change status according to neovims mode
   local mode_label = {
@@ -38,7 +38,7 @@ require('lualine').setup {
     component_separators = '',
     section_separators = { left = '', right = '' },
     globalstatus = true,
-    symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '},
+    symbols = {error = '', warn = '', info = '', hint = ''},
     colored = false
   },
   sections = {
