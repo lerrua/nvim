@@ -32,20 +32,35 @@ local function custom_vim_mode()
   return mode_label[vim.fn.mode()]
 end
 
+local function custom_vim_filename()
+  local filename = vim.fn.expand('%:~:.')
+
+  if vim.fn.empty(filename) == 1 then
+    return ''
+  end
+
+  if filename == 'NvimTree_1' then
+    return 'File Explorer'
+  end
+
+  return filename
+end
+
 require('lualine').setup {
   options = {
     icons_enabled = true,
     component_separators = '',
     section_separators = { left = '', right = '' },
     globalstatus = true,
-    symbols = {error = '', warn = '', info = '', hint = ''},
+    symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '},
     colored = false
   },
   sections = {
     lualine_a = { custom_vim_mode },
-    lualine_b = {},
-    lualine_c = { 'branch' },
+    lualine_b = { custom_vim_filename },
+    lualine_c = { '' },
     lualine_x = { 'diff', 'diagnostics' },
-    lualine_y = {},
+    lualine_y = { 'location'},
+    lualine_z = { 'branch' },
   }
 }

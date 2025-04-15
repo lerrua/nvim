@@ -20,6 +20,7 @@ return require('packer').startup(function(use)
   }
   use { "catppuccin/nvim", as = "catppuccin" }
   use { "ronisbr/nano-theme.nvim" }
+  use "alexxGmZ/e-ink.nvim"
 
   use 'stevearc/dressing.nvim'
 
@@ -43,8 +44,40 @@ return require('packer').startup(function(use)
   use 'm4xshen/autoclose.nvim'
   use 'j-hui/fidget.nvim'
   use { 'akinsho/toggleterm.nvim', tag = '*' }
-  use {"folke/trouble.nvim", branch = "dev"}
-  use 'github/copilot.vim'
+  use "folke/trouble.nvim"
+  use 'MeanderingProgrammer/render-markdown.nvim'
+  use 'HakonHarnes/img-clip.nvim'
+  use 'folke/which-key.nvim'
+  use 'bassamsdata/namu.nvim'
+  use 'MagicDuck/grug-far.nvim'
+
+  -- github copilot
+  -- use 'github/copilot.vim'
+  -- use { 'CopilotC-Nvim/CopilotChat.nvim', run = 'make tiktoken', requires = 'nvim-lua/plenary.nvim' }
+  use 'zbirenbaum/copilot.lua'
+  use {
+    'yetone/avante.nvim',
+    branch = 'main',
+    run = 'make',
+    config = function()
+      require('avante_lib').load()
+      require('avante').setup({
+        provider = 'copilot',
+        copilot = {
+          model = "claude-3.7-sonnet",
+        }
+      })
+    end
+  }
+
+  use {
+    "zbirenbaum/copilot-cmp",
+    after = { "copilot.lua" },
+    config = function ()
+      require("copilot_cmp").setup()
+    end
+  }
+
   use {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.8',
@@ -73,7 +106,7 @@ return require('packer').startup(function(use)
   use {'nvchad/volt', lazy = true}
   use {'nvchad/menu', lazy = true}
 
-  -- use 'nvim-pack/nvim-spectre'
+  use 'nvim-pack/nvim-spectre'
 
   -- GIT
   use 'lewis6991/gitsigns.nvim'

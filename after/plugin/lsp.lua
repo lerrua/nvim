@@ -20,7 +20,7 @@ require("mason-lspconfig").setup({
 })
 
 require("symbols-outline").setup()
-vim.keymap.set('n', '<F9>', '<CMD>SymbolsOutline<CR>', {})
+vim.keymap.set('n', '<F10>', '<CMD>SymbolsOutline<CR>', {})
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local navic = require("nvim-navic")
@@ -148,6 +148,7 @@ cmp.setup {
     end, { 'i', 's' }),
   }),
   sources = {
+    { name = 'copilot' },
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
     { name = 'path' },

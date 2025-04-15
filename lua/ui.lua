@@ -68,4 +68,12 @@ require("catppuccin").setup {
 vim.cmd("colorscheme " .. colorscheme)
 
 -- UI improvements
--- require('dressing').setup()
+require('dressing').setup()
+
+require("which-key").setup()
+require("namu").setup()
+
+-- require("e-ink").setup()
+-- vim.cmd("colorscheme e-ink")
+
+require('grug-far').setup()

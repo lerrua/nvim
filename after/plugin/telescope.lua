@@ -54,15 +54,15 @@ local TelescopePrompt = {
         bg = '#2d3149',
     },
     TelescopePromptTitle = {
-        fg = '#2d3149',
+        -- fg = '#2d3149',
         bg = '#2d3149',
     },
     TelescopePreviewTitle = {
-        fg = '#1F2335',
+        -- fg = '#1F2335',
         bg = '#1F2335',
     },
     TelescopeResultsTitle = {
-        fg = '#1F2335',
+        -- fg = '#1F2335',
         bg = '#1F2335',
     },
     TelescopeBorder = { bg = "none" },

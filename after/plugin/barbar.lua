@@ -21,4 +21,15 @@
 --       mode = "'unique'|'relative'|'tail'|'shorten'",
 --   },
 -- })
-require("bufferline").setup{}
+require("bufferline").setup({
+  options = {
+    offsets = {
+        {
+            filetype = "NvimTree",
+            text = "",
+            highlight = "Directory",
+            separator = false,
+        }
+    }
+  }
+})
