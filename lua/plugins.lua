@@ -51,9 +51,6 @@ return require('packer').startup(function(use)
   use 'bassamsdata/namu.nvim'
   use 'MagicDuck/grug-far.nvim'
 
-  -- github copilot
-  -- use 'github/copilot.vim'
-  -- use { 'CopilotC-Nvim/CopilotChat.nvim', run = 'make tiktoken', requires = 'nvim-lua/plenary.nvim' }
   use 'zbirenbaum/copilot.lua'
   use {
     'yetone/avante.nvim',
@@ -75,6 +72,16 @@ return require('packer').startup(function(use)
     after = { "copilot.lua" },
     config = function ()
       require("copilot_cmp").setup()
+    end
+  }
+
+  use {
+    'greggh/claude-code.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+    },
+    config = function()
+      require('claude-code').setup()
     end
   }
 
