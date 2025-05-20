@@ -67,13 +67,25 @@ require("catppuccin").setup {
 
 vim.cmd("colorscheme " .. colorscheme)
 
--- UI improvements
-require('dressing').setup()
+-- UI components should be configured through lazy.nvim's config option
+-- but we're keeping these here for backward compatibility during the transition
 
-require("which-key").setup()
-require("namu").setup()
+-- UI improvements
+if require("lazy.core.config").plugins["dressing.nvim"] then
+  require('dressing').setup()
+end
+
+if require("lazy.core.config").plugins["which-key.nvim"] then
+  require("which-key").setup()
+end
+
+if require("lazy.core.config").plugins["namu.nvim"] then
+  require("namu").setup()
+end
 
 -- require("e-ink").setup()
 -- vim.cmd("colorscheme e-ink")
 
-require('grug-far').setup()
+if require("lazy.core.config").plugins["grug-far.nvim"] then
+  require('grug-far').setup()
+end

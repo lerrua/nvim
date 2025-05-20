@@ -1,5 +1,9 @@
--- boot initial nvim configuration
-require("plugins")
+-- Set options and keymaps before loading plugins
 require("options")
 require("keymaps")
+
+-- Initialize lazy.nvim and load plugins
+require("lazy-setup")
+
+-- Configure UI after plugins are loaded
 require("ui")
