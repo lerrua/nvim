@@ -15,7 +15,15 @@ return {
     "SmiteshP/nvim-navic",
     dependencies = "neovim/nvim-lspconfig"
   },
-  { "simrat39/symbols-outline.nvim" },
+  {
+    "hedyhli/outline.nvim",
+    config = function()
+      vim.keymap.set("n", "<F10>", "<cmd>Outline<CR>",
+        { desc = "Toggle Outline" })
+
+      require("outline").setup {}
+    end,
+  },
 
   -- Language-specific
   {

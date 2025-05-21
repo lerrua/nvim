@@ -19,9 +19,6 @@ require("mason-lspconfig").setup({
   ensure_installed = lsp_langs
 })
 
-require("symbols-outline").setup()
-vim.keymap.set('n', '<F10>', '<CMD>SymbolsOutline<CR>', {})
-
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local navic = require("nvim-navic")
 
