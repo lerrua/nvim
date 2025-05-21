@@ -18,6 +18,7 @@ return {
   { "nvim-tree/nvim-web-devicons" },
   {
     "akinsho/bufferline.nvim", 
+    after="catppuccin",
     version = "*", 
     dependencies = { "nvim-tree/nvim-web-devicons" }
   },
@@ -47,7 +48,9 @@ return {
       "nvim-tree/nvim-web-devicons",
     },
     config = function()
-      require("barbecue").setup()
+      require("barbecue").setup({
+        theme = "catppuccin-mocha"
+      })
     end,
   },
   
