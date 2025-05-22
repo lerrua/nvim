@@ -2,6 +2,7 @@
 require("bufferline").setup({
   highlights = require("catppuccin.groups.integrations.bufferline").get(),
   options = {
+    color_icons = false,
     separator_style = "slant",
     offsets = {
         {
