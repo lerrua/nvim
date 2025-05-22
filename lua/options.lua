@@ -1,3 +1,6 @@
+vim.t_Co = 256
+vim.opt.termguicolors = true
+
 vim.g.mapleader = ','
 
 vim.opt.autoindent = true

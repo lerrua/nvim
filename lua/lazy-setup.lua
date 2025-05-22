@@ -17,7 +17,7 @@ local opts = {
     lazy = false, -- By default, don't lazy-load plugins unless specified
   },
   install = {
-    colorscheme = { "catppuccin-mocha" },
+    colorscheme = { "catppuccin" },
   },
   ui = {
     border = "rounded",

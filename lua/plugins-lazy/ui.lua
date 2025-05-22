@@ -20,7 +20,24 @@ return {
     "akinsho/bufferline.nvim", 
     after="catppuccin",
     version = "*", 
-    dependencies = { "nvim-tree/nvim-web-devicons" }
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("bufferline").setup({
+        highlights = require("catppuccin.groups.integrations.bufferline").get(),
+        options = {
+          color_icons = false,
+          separator_style = "slant",
+          offsets = {
+            {
+              filetype = "NvimTree",
+              text = "",
+              highlight = "Directory",
+              separator = false,
+            }
+          }
+        }
+      })
+    end,
   },
   { "nvim-lualine/lualine.nvim" },
   { "lukas-reineke/indent-blankline.nvim" },
@@ -28,8 +45,8 @@ return {
   { "rcarriga/nvim-notify" },
   { "m4xshen/autoclose.nvim" },
   { "j-hui/fidget.nvim" },
-  { 
-    "akinsho/toggleterm.nvim", 
+  {
+    "akinsho/toggleterm.nvim",
     version = "*" 
   },
   { "folke/trouble.nvim" },
@@ -38,10 +55,11 @@ return {
   { "folke/which-key.nvim" },
   { "bassamsdata/namu.nvim" },
   { "MagicDuck/grug-far.nvim" },
-  
+
   -- Status/Info displays
   {
     "utilyre/barbecue.nvim",
+    after = "catppuccin",
     version = "*",
     dependencies = {
       "SmiteshP/nvim-navic",
@@ -49,11 +67,11 @@ return {
     },
     config = function()
       require("barbecue").setup({
-        theme = "catppuccin-mocha"
+        theme = "catppuccin",
       })
     end,
   },
-  
+
   -- Notification and UI improvements
   {
     "folke/noice.nvim",
@@ -62,7 +80,7 @@ return {
       "rcarriga/nvim-notify",
     }
   },
-  
+
   -- NVChad components
   { "nvchad/volt" },
   { "nvchad/menu" },
