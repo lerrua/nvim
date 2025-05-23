@@ -10,7 +10,7 @@ return {
           auto_trigger = true,
           keymap = {
             accept = "<C-a>",
-            dismiss = "<C-c>",
+            dismiss = "<M-l>",
           }
         },
         panel = { enabled = false },
