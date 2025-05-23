@@ -7,32 +7,6 @@ return {
     end,
   },
 
-  -- File explorers
-  {
-    "nvim-tree/nvim-tree.lua",
-    keys = {
-      { "<F4>", "<CMD>NvimTreeToggle<CR>", desc = "File Explorer" },
-    },
-    config = function()
-      require("nvim-tree").setup(
-        {
-          view = {
-            width = '40%',
-          }
-        }
-      )
-    end,
-  },
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
-      "MunifTanjim/nui.nvim",
-    }
-  },
-
   -- UI Components
   {
     "nvim-tree/nvim-web-devicons",

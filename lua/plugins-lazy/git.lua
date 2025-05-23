@@ -1,5 +1,5 @@
 return {
-  -- Git integration
+  -- Git integrations
   {
     "lewis6991/gitsigns.nvim",
     event = "VeryLazy",

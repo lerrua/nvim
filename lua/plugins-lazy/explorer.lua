@@ -1,4 +1,5 @@
 return {
+  -- Telescope
   {
     "nvim-telescope/telescope.nvim",
     version = "0.1.8",
@@ -13,4 +14,21 @@ return {
 
   -- Search/Replace utilities
   { "nvim-pack/nvim-spectre" },
+
+  -- File explorers
+  {
+    "nvim-tree/nvim-tree.lua",
+    keys = {
+      { "<F4>", "<CMD>NvimTreeToggle<CR>", desc = "File Explorer" },
+    },
+    config = function()
+      require("nvim-tree").setup(
+        {
+          view = {
+            width = '40%',
+          }
+        }
+      )
+    end,
+  },
 }
