@@ -1,2 +1,0 @@
--- commentary
-require('Comment').setup()

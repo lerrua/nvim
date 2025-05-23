@@ -1,6 +1,22 @@
 return {
   -- AI Assistants
-  { "zbirenbaum/copilot.lua" },
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+        suggestion = {
+          auto_trigger = true,
+          keymap = {
+            accept = "<C-a>",
+            dismiss = "<C-c>",
+          }
+        },
+        panel = { enabled = false },
+      })
+    end,
+  },
   {
     "yetone/avante.nvim",
     branch = "main",

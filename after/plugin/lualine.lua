@@ -1,3 +1,19 @@
+-- signs for diagnostics
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+
+-- Configure diagnostics
+vim.diagnostic.config({
+  virtual_text = false,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = signs.Error,
+      [vim.diagnostic.severity.WARN] = signs.Warn,
+      [vim.diagnostic.severity.HINT] = signs.Hint,
+      [vim.diagnostic.severity.INFO] = signs.Info,
+    },
+  },
+})
+
 local function custom_vim_mode()
   local default_icon = ' '
   local insert_mode_icon = ' '
@@ -32,20 +48,6 @@ local function custom_vim_mode()
   return mode_label[vim.fn.mode()]
 end
 
-local function custom_vim_filename()
-  local filename = vim.fn.expand('%:~:.')
-
-  if vim.fn.empty(filename) == 1 then
-    return ''
-  end
-
-  if filename == 'NvimTree_1' then
-    return 'File Explorer'
-  end
-
-  return filename
-end
-
 require('lualine').setup {
   options = {
     theme = 'catppuccin',
@@ -53,15 +55,20 @@ require('lualine').setup {
     component_separators = '',
     section_separators = { left = '', right = '' },
     globalstatus = true,
-    symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '},
+    symbols = {
+      error = signs.Error,
+      warn = signs.Warn,
+      info = signs.Info,
+      hint = signs.Hint,
+    },
     colored = false
   },
   sections = {
     lualine_a = { custom_vim_mode },
-    lualine_b = { custom_vim_filename },
+    lualine_b = { '' },
     lualine_c = { '' },
-    lualine_x = { 'diff', 'diagnostics' },
+    lualine_x = { 'diagnostics', 'filetype' },
     lualine_y = { 'location'},
-    lualine_z = { 'branch' },
+    lualine_z = { 'diff', 'branch' },
   }
 }

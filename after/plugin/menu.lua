@@ -3,7 +3,7 @@ vim.keymap.set("n", "<C-c>", function()
   require("menu").open("default")
 end, {})
 
--- mouse users + nvimtree users!
+-- mouse users + nvimtree users
 vim.keymap.set("n", "<RightMouse>", function()
   vim.cmd.exec '"normal! \\<RightMouse>"'
 
