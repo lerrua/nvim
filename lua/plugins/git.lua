@@ -21,10 +21,6 @@ return {
     end,
   },
   {
-    "iberianpig/tig-explorer.vim",
-    dependencies = { "rbgrouleff/bclose.vim" }
-  },
-  {
     "kdheepak/lazygit.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",

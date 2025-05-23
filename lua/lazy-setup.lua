@@ -5,7 +5,7 @@ if not vim.loop.fs_stat(lazypath) then
     "clone",
     "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
+    "--branch=stable",
     lazypath,
   })
 end
@@ -14,7 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 -- Set lazy options
 local opts = {
   defaults = {
-    lazy = false, -- By default, don't lazy-load plugins unless specified
+    lazy = false,
   },
   install = {
     colorscheme = { "catppuccin" },
