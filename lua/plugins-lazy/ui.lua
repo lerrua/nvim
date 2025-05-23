@@ -12,15 +12,14 @@ return {
     "nvim-tree/nvim-web-devicons",
     config = function()
       require("nvim-web-devicons").setup({
-        -- override = {
-        --   py = {
-        --     icon = "",
-        --     color = "#428850",
-        --     cterm_color = "65",
-        --     name = "Py"
-        --   }
-        -- },
-        -- default = true,
+        override = {
+          rb = {
+            icon = "",
+            color = "#FF8080",
+            name = "Rb"
+          },
+        },
+        default = true;
       })
     end,
   },
