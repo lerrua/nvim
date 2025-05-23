@@ -1,9 +1,5 @@
 return {
   {
-    "mcchrish/zenbones.nvim",
-    dependencies = { "rktjmp/lush.nvim" }
-  },
-  {
     "catppuccin/nvim",
     name = "catppuccin",
     config = function()
@@ -30,6 +26,4 @@ return {
       vim.cmd.colorscheme "catppuccin-frappe"
     end
   },
-  { "ronisbr/nano-theme.nvim" },
-  { "alexxGmZ/e-ink.nvim" },
 }
