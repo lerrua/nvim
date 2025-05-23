@@ -1,5 +1,4 @@
 return {
-  -- Colorschemes
   {
     "mcchrish/zenbones.nvim",
     dependencies = { "rktjmp/lush.nvim" }
@@ -18,7 +17,6 @@ return {
           fidget = true,
           fzf = true,
           copilot_vim = false,
-          nvimtree = true,
           lsp_trouble = false,
           which_key = false
         },

@@ -1,25 +1,30 @@
 return {
   -- UI Enhancements
-  { "stevearc/dressing.nvim" },
-  
+  {
+    "stevearc/dressing.nvim",
+    config = function()
+      require("dressing").setup()
+    end,
+  },
+
   -- File explorers
   { "nvim-tree/nvim-tree.lua" },
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
-    dependencies = { 
+    dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
     }
   },
-  
+
   -- UI Components
   { "nvim-tree/nvim-web-devicons" },
   {
-    "akinsho/bufferline.nvim", 
+    "akinsho/bufferline.nvim",
     after="catppuccin",
-    version = "*", 
+    version = "*",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       require("bufferline").setup({
@@ -27,6 +32,7 @@ return {
         options = {
           color_icons = false,
           separator_style = "slant",
+          diagnostics = "nvim_lsp",
           offsets = {
             {
               filetype = "NvimTree",
@@ -47,14 +53,46 @@ return {
   { "j-hui/fidget.nvim" },
   {
     "akinsho/toggleterm.nvim",
-    version = "*" 
+    version = "*"
   },
-  { "folke/trouble.nvim" },
+  {
+    "folke/trouble.nvim",
+    keys = {
+      { "<F9>", "<CMD>Trouble diagnostics toggle<CR>", desc = "Diagnostics (Trouble)" },
+    },
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("trouble").setup()
+    end,
+  },
   { "MeanderingProgrammer/render-markdown.nvim" },
   { "HakonHarnes/img-clip.nvim" },
-  { "folke/which-key.nvim" },
-  { "bassamsdata/namu.nvim" },
-  { "MagicDuck/grug-far.nvim" },
+  {
+    "folke/which-key.nvim",
+    config = function()
+      require("which-key").setup()
+    end,
+  },
+  {
+    "bassamsdata/namu.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+    config = function()
+      require("namu").setup()
+    end,
+  },
+  {
+    "MagicDuck/grug-far.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+    config = function()
+      require("grug-far").setup()
+    end,
+  },
 
   -- Status/Info displays
   {

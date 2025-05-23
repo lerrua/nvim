@@ -4,6 +4,3 @@ require("keymaps")
 
 -- Initialize lazy.nvim and load plugins
 require("lazy-setup")
-
--- Configure UI after plugins are loaded
-require("ui")

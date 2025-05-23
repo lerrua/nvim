@@ -1,10 +1,12 @@
 -- LSP setup definitions
 
 local lsp_langs = {
+  "lua_ls",
   "pyright",
   "ruff",
   "ts_ls",
   "eslint",
+  "tailwindcss",
   "rust_analyzer",
   "gopls"
 }
