@@ -39,4 +39,4 @@ local opts = {
 }
 
 -- Setup Lazy
-require("lazy").setup("plugins-lazy", opts)
+require("lazy").setup("plugins", opts)
