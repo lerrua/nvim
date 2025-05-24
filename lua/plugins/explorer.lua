@@ -96,7 +96,14 @@ return {
   { "nvim-telescope/telescope-ui-select.nvim" },
 
   -- Search/Replace utilities
-  { "nvim-pack/nvim-spectre" },
+  {
+    "nvim-pack/nvim-spectre",
+    keys = {
+      { "<leader>S", "<cmd>lua require('spectre').toggle()<CR>", desc = "Toggle Spectre" },
+      { "<leader>Sw", "<cmd>lua require('spectre').open_visual({select_word=true})<CR>", desc = "Search current word" },
+      { "<leader>Sp", "<cmd>lua require('spectre').open_file_search({select_word=true})<CR>", desc = "Search on current file" },
+    },
+  },
 
   -- File explorers
   {

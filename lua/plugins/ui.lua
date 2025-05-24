@@ -58,6 +58,7 @@ local function custom_filetype()
     diff = '󰀨 Diff',
     git = '󰊢 Git',
     trouble = ' Trouble',
+    spectre_panel = '󱁴 Spectre Panel',
   }
 
   if filetype_icon[filetype] ~= nil then
