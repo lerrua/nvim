@@ -147,12 +147,12 @@ cmp.setup {
     end, { 'i', 's' }),
   }),
   sources = {
-    { name = 'copilot' },
-    { name = 'nvim_lsp' },
-    { name = 'luasnip' },
-    { name = 'path' },
-    { name = 'buffer' },
-    { name = 'nvim_lsp_signature_help' },
+    { name = 'copilot', keyword_length = 2 },
+    { name = 'nvim_lsp',keyword_length = 2 },
+    { name = 'luasnip', keyword_length = 2 },
+    { name = 'path', keyword_length = 2 },
+    { name = 'buffer', keyword_length = 2 },
+    { name = 'nvim_lsp_signature_help', keyword_length = 2 },
   },
   formatting = {
     format = lspkind.cmp_format({
