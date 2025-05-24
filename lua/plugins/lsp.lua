@@ -34,26 +34,4 @@ return {
     "SmiteshP/nvim-navic",
     dependencies = "neovim/nvim-lspconfig"
   },
-  {
-    "hedyhli/outline.nvim",
-    config = function()
-      vim.keymap.set("n", "<F10>", "<cmd>Outline<CR>",
-        { desc = "Toggle Outline" })
-
-      require("outline").setup {}
-    end,
-  },
-
-  -- Language-specific
-  {
-    "ray-x/go.nvim",
-    dependencies = { "ray-x/guihua.lua" },
-    config = function()
-      require("go").setup()
-    end
-  },
-  {
-    "ray-x/guihua.lua",
-    build = "cd lua/fzy && make"
-  },
 }
