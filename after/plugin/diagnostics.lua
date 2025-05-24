@@ -48,6 +48,37 @@ local function custom_vim_mode()
   return mode_label[vim.fn.mode()]
 end
 
+local function custom_filetype()
+  local filetype = vim.bo.filetype
+  if filetype == '' then
+    return 'No File'
+  end
+
+  local filetype_icon = {
+    TelescopePrompt = ' Telescope',
+    NvimTree = '󰙅 File Explorer',
+    mason = '󰏖 Mason',
+    Lazy = '󰒋 Lazy',
+    lazygit = '󰊢 LazyGit',
+    help = '󰋖 Help',
+    AvanteInput = '󱙺 Avante AI',
+  }
+
+  if filetype_icon[filetype] ~= nil then
+    return filetype_icon[filetype]
+  end
+
+  -- Use webdev-icons and filetype for all other filetypes
+  local has_devicons, devicons = pcall(require, 'nvim-web-devicons')
+  if has_devicons then
+    local icon = devicons.get_icon_by_filetype(filetype)
+    if icon then
+      return icon .. ' ' .. filetype
+    end
+  end
+  return filetype
+end
+
 require('lualine').setup {
   options = {
     theme = 'catppuccin',
@@ -67,7 +98,7 @@ require('lualine').setup {
     lualine_a = { custom_vim_mode },
     lualine_b = { '' },
     lualine_c = { '' },
-    lualine_x = { 'diagnostics', 'filetype' },
+    lualine_x = { 'diagnostics', custom_filetype },
     lualine_y = { 'location'},
     lualine_z = { 'diff', 'branch' },
   }

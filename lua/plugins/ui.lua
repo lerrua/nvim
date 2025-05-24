@@ -38,7 +38,7 @@ return {
           offsets = {
             {
               filetype = "NvimTree",
-              text = "",
+              text = "󰙅 File Explorer",
               highlight = "Directory",
               separator = false,
             }

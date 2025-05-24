@@ -108,6 +108,7 @@ local luasnip = require('luasnip')
 
 -- nvim-cmp setup
 local cmp = require('cmp')
+local keyword_length = 1
 cmp.setup {
   snippet = {
     expand = function(args)
@@ -147,12 +148,12 @@ cmp.setup {
     end, { 'i', 's' }),
   }),
   sources = {
-    { name = 'copilot', keyword_length = 2 },
-    { name = 'nvim_lsp',keyword_length = 2 },
-    { name = 'luasnip', keyword_length = 2 },
-    { name = 'path', keyword_length = 2 },
-    { name = 'buffer', keyword_length = 2 },
-    { name = 'nvim_lsp_signature_help', keyword_length = 2 },
+    { name = 'copilot', keyword_length = keyword_length },
+    { name = 'nvim_lsp',keyword_length = keyword_length },
+    { name = 'luasnip', keyword_length = keyword_length },
+    { name = 'path', keyword_length = keyword_length },
+    { name = 'buffer', keyword_length = keyword_length },
+    { name = 'nvim_lsp_signature_help', keyword_length = keyword_length },
   },
   formatting = {
     format = lspkind.cmp_format({

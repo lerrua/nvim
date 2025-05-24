@@ -18,15 +18,24 @@ return {
       require('telescope').setup(
         {
           defaults = {
+            prompt_title = false,
+            results_title = false,
             prompt_prefix = '  ',
+            selection_caret = " ",
             file_ignore_patterns = { "%.git/", "node_modules/", "dist/" },
-            border = true,
-            borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
+            border = {},
+            use_less = true,
+            vimgrep_arguments = {
+              "rg",
+              "--vimgrep",
+              "--hidden",
+              "--smart-case",
+              "--trim"
+            },
           },
           layout_strategy = "center",
           pickers = {
             find_files = { previewer = false, hidden = true },
-            live_grep = { additional_args = function() return { "--hidden" } end },
             buffers = { previewer = false },
           },
           extensions = {
@@ -50,31 +59,33 @@ return {
       require("telescope").load_extension("ui-select")
 
       -- borderless theme
-      local TelescopePrompt = {
-        TelescopePromptNormal = {
-          bg = '#2d3149',
-        },
-        TelescopePromptBorder = {
-          bg = '#2d3149',
-        },
-        TelescopePromptTitle = {
-          -- fg = '#2d3149',
-          bg = '#2d3149',
-        },
-        TelescopePreviewTitle = {
-          -- fg = '#1F2335',
-          bg = '#1F2335',
-        },
-        TelescopeResultsTitle = {
-          -- fg = '#1F2335',
-          bg = '#1F2335',
-        },
-        TelescopeBorder = { bg = "none" },
-        TelescopeNormal = { bg = "none" },
-      }
-      for hl, col in pairs(TelescopePrompt) do
-        vim.api.nvim_set_hl(0, hl, col)
-      end
+      -- local TelescopePrompts = {
+        -- TelescopePromptNormal = {
+        --   bg = '#2d3149',
+        -- },
+        -- TelescopePromptBorder = {
+        --   bg = '#2d3149',
+        -- },
+        -- NormalFloat = { bg = '#2d3149' },
+        -- FloatBorder = { bg = '#2d3149', fg = '#2d3149' },
+        -- TelescopePromptTitle = {
+        --   -- fg = '#2d3149',
+        --   bg = '#2d3149',
+        -- },
+        -- TelescopePreviewTitle = {
+        --   -- fg = '#1F2335',
+        --   bg = '#1F2335',
+        -- },
+        -- TelescopeResultsTitle = {
+        --   -- fg = '#1F2335',
+        --   bg = '#1F2335',
+        -- },
+        -- TelescopeBorder = { bg = "none" },
+        -- TelescopeNormal = { bg = "none" },
+      -- }
+      -- for hl, col in pairs(TelescopePrompts) do
+      --   vim.api.nvim_set_hl(0, hl, col)
+      -- end
     end
   },
   {
@@ -91,7 +102,7 @@ return {
   {
     "nvim-tree/nvim-tree.lua",
     keys = {
-      { "<F4>", "<CMD>NvimTreeToggle<CR>", desc = "File Explorer" },
+      { "<F4>", "<CMD>NvimTreeFindFileToggle<CR>", desc = "File Explorer" },
     },
     config = function()
       require("nvim-tree").setup(
