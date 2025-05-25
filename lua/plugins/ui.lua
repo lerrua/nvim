@@ -51,14 +51,15 @@ local function custom_filetype()
     mason = "󰏖 Mason",
     Lazy = "󰒋 Lazy",
     lazygit = "󰊢 LazyGit",
-    help = "󰋖 Help",
+    help = "󰋖 Help Page",
     AvanteInput = "󱙺 Avante AI",
-    Outline = "",
+    Outline = "󰈔 Code Symbols",
     qf = "󰅚 Quickfix",
     diff = "󰀨 Diff",
     git = "󰊢 Git",
     trouble = " Trouble",
     spectre_panel = "󱁴 Spectre Panel",
+    toggleterm = " Floating Terminal",
   }
 
   if filetype_icon[filetype] ~= nil then
@@ -85,7 +86,7 @@ return {
     end,
   },
 
-  -- Web Icons
+  -- Dev Icons
   {
     "nvim-tree/nvim-web-devicons",
     config = function()
@@ -161,6 +162,7 @@ return {
     end,
   },
 
+  -- Visual identation
   {
     "lukas-reineke/indent-blankline.nvim",
     config = function()
@@ -168,17 +170,7 @@ return {
     end,
   },
 
-  -- Loading UI
-  -- {
-  --   "j-hui/fidget.nvim",
-  --   config = function()
-  --     require("fidget").setup({
-  --       -- text = {
-  --       --   spinner = "dots_negative",
-  --       -- }
-  --     })
-  --   end,
-  -- },
+  -- Floating terminal
   {
     "akinsho/toggleterm.nvim",
     version = "*",
@@ -205,6 +197,8 @@ return {
       require("trouble").setup()
     end,
   },
+
+  -- Markdown render
   {
     "MeanderingProgrammer/render-markdown.nvim",
     config = function()
@@ -217,12 +211,16 @@ return {
       require("img-clip").setup()
     end,
   },
+
+  -- Keybinds helper
   {
     "folke/which-key.nvim",
     config = function()
       require("which-key").setup()
     end,
   },
+
+  -- Symbols navigator
   {
     "bassamsdata/namu.nvim",
     dependencies = {
@@ -231,16 +229,6 @@ return {
     },
     config = function()
       require("namu").setup()
-    end,
-  },
-  {
-    "MagicDuck/grug-far.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim",
-    },
-    config = function()
-      require("grug-far").setup()
     end,
   },
 
@@ -260,7 +248,7 @@ return {
     end,
   },
 
-  -- Notification and UI improvements
+  -- Notifications
   {
     "rcarriga/nvim-notify",
     config = function()
@@ -289,11 +277,11 @@ return {
           },
         },
         presets = {
-          bottom_search = true,         -- use a classic bottom cmdline for search
-          command_palette = true,       -- position the cmdline and popupmenu together
+          bottom_search = true, -- use a classic bottom cmdline for search
+          command_palette = true, -- position the cmdline and popupmenu together
           long_message_to_split = true, -- long messages will be sent to a split
-          inc_rename = false,           -- enables an input dialog for inc-rename.nvim
-          lsp_doc_border = true,        -- add a border to hover docs and signature help
+          inc_rename = false, -- enables an input dialog for inc-rename.nvim
+          lsp_doc_border = true, -- add a border to hover docs and signature help
         },
       })
     end,
