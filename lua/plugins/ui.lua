@@ -192,6 +192,7 @@ return {
     keys = {
       { "<F9>", "<CMD>Trouble diagnostics toggle<CR>", desc = "Diagnostics (Trouble)" },
     },
+    lazy = false,
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       require("trouble").setup()
@@ -277,11 +278,11 @@ return {
           },
         },
         presets = {
-          bottom_search = true, -- use a classic bottom cmdline for search
-          command_palette = true, -- position the cmdline and popupmenu together
+          bottom_search = true,         -- use a classic bottom cmdline for search
+          command_palette = true,       -- position the cmdline and popupmenu together
           long_message_to_split = true, -- long messages will be sent to a split
-          inc_rename = false, -- enables an input dialog for inc-rename.nvim
-          lsp_doc_border = true, -- add a border to hover docs and signature help
+          inc_rename = false,           -- enables an input dialog for inc-rename.nvim
+          lsp_doc_border = true,        -- add a border to hover docs and signature help
         },
       })
     end,
