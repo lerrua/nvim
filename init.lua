@@ -4,3 +4,6 @@ require("keymaps")
 
 -- Initialize lazy.nvim and load plugins
 require("lazy-setup")
+
+-- Set diagnostics options
+require("diagnostics")

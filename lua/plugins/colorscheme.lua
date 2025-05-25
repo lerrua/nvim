@@ -14,7 +14,7 @@ return {
           fzf = true,
           copilot_vim = false,
           lsp_trouble = false,
-          which_key = false
+          which_key = false,
         },
         flavour = "frappe", -- latte, frappe, macchiato, mocha
         styles = {
@@ -24,6 +24,6 @@ return {
         },
       }
       vim.cmd.colorscheme "catppuccin-frappe"
-    end
+    end,
   },
 }
