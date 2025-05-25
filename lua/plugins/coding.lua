@@ -11,7 +11,7 @@ return {
           keymap = {
             accept = "<C-a>",
             dismiss = "<M-l>",
-          }
+          },
         },
         panel = { enabled = false },
       })
@@ -22,22 +22,22 @@ return {
     branch = "main",
     build = "make",
     config = function()
-      require('avante_lib').load()
-      require('avante').setup({
-        provider = 'copilot',
+      require("avante_lib").load()
+      require("avante").setup({
+        provider = "copilot",
         copilot = {
           model = "claude-3.7-sonnet",
-        }
+        },
       })
-    end
+    end,
   },
-  {
-    "zbirenbaum/copilot-cmp",
-    dependencies = { "copilot.lua" },
-    config = function()
-      require("copilot_cmp").setup()
-    end
-  },
+  -- {
+  --   "zbirenbaum/copilot-cmp",
+  --   dependencies = { "copilot.lua" },
+  --   config = function()
+  --     require("copilot_cmp").setup()
+  --   end,
+  -- },
 
   -- Treesitter
   {
@@ -46,9 +46,14 @@ return {
     config = function()
       require("nvim-treesitter.configs").setup {
         ensure_installed = {
-          "lua", "luadoc", "luap",
+          "lua",
+          "luadoc",
+          "luap",
           "rust",
-          "go", "gomod", "gosum", "gowork",
+          "go",
+          "gomod",
+          "gosum",
+          "gowork",
           "ruby",
           "bash",
           "css",
@@ -56,16 +61,20 @@ return {
           "solidity",
           "html",
           "python",
-          "yaml", "query",
+          "yaml",
+          "query",
           "elixir",
           "json",
           "javascript",
-          "markdown", "markdown_inline",
-          "vim", "vimdoc",
+          "markdown",
+          "markdown_inline",
+          "vim",
+          "vimdoc",
           "vue",
-          "tsx", "typescript",
+          "tsx",
+          "typescript",
           "terraform",
-          "proto"
+          "proto",
         },
         sync_install = false,
         auto_install = true,
@@ -76,7 +85,7 @@ return {
           enable = true,
         },
       }
-    end
+    end,
   },
 
   -- Comments/Notes
@@ -93,7 +102,7 @@ return {
         options = {
           disable_when_touch = true,
           disable_filetype = { "TelescopePrompt", "vim" },
-        }
+        },
       })
     end,
   },
@@ -102,35 +111,34 @@ return {
     dependencies = "nvim-lua/plenary.nvim",
     config = function()
       require("todo-comments").setup {}
-    end
+    end,
   },
 
   -- Completion and Snippets
   {
     "L3MON4D3/LuaSnip",
     version = "v2.*",
-    build = "make install_jsregexp"
+    build = "make install_jsregexp",
   },
-  {
-    "hrsh7th/nvim-cmp",
-    dependencies = {
-      "hrsh7th/cmp-nvim-lsp",     -- LSP source for nvim-cmp
-      "hrsh7th/cmp-nvim-lua",     -- LSP source for built-in LUA API
-      "hrsh7th/cmp-path",         -- LSP source for filesystem paths
-      "hrsh7th/cmp-buffer",       -- LSP source for buffer words
-      "hrsh7th/cmp-nvim-lsp-signature-help", -- LSP source for displaying function signatures
-      "saadparwaiz1/cmp_luasnip", -- Snippets source for nvim-cmp
-      "rafamadriz/friendly-snippets", -- Snippets collection
-      "onsails/lspkind-nvim",     -- Pictograms for LSP
-    },
-  },
+  -- {
+  --   "hrsh7th/nvim-cmp",
+  --   dependencies = {
+  --     "hrsh7th/cmp-nvim-lsp",     -- LSP source for nvim-cmp
+  --     "hrsh7th/cmp-nvim-lua",     -- LSP source for built-in LUA API
+  --     "hrsh7th/cmp-path",         -- LSP source for filesystem paths
+  --     "hrsh7th/cmp-buffer",       -- LSP source for buffer words
+  --     "hrsh7th/cmp-nvim-lsp-signature-help", -- LSP source for displaying function signatures
+  --     "saadparwaiz1/cmp_luasnip", -- Snippets source for nvim-cmp
+  --     "rafamadriz/friendly-snippets", -- Snippets collection
+  --     "onsails/lspkind-nvim",     -- Pictograms for LSP
+  --   },
+  -- },
 
   -- symbols outline
   {
     "hedyhli/outline.nvim",
     config = function()
-      vim.keymap.set("n", "<F10>", "<cmd>Outline<CR>",
-        { desc = "Toggle Outline" })
+      vim.keymap.set("n", "<F10>", "<cmd>Outline<CR>", { desc = "Toggle Outline" })
 
       require("outline").setup {}
     end,
@@ -143,11 +151,11 @@ return {
     dependencies = { "ray-x/guihua.lua" },
     config = function()
       require("go").setup()
-    end
+    end,
   },
   {
     "ray-x/guihua.lua",
-    build = "cd lua/fzy && make"
+    build = "cd lua/fzy && make",
   },
 
   -- Test Runners
@@ -165,24 +173,24 @@ return {
       "nvim-neotest/neotest-go",
     },
     config = function()
-    require("neotest").setup({
-      adapters = {
-        require("neotest-vitest"),
-        require("neotest-python"),
-        require("neotest-rspec"),
-        require("neotest-go"),
-        require("neotest-jest")({
-          jestCommand = "yarn test --watchAll=false --passWithNoTests",
-          jestConfigFile = "custom.jest.config.ts",
-          env = {
-            CI = true,
-          },
-          cwd = function()
-            return vim.fn.getcwd()
-          end,
-        }),
-      }
-    })
-  end,
+      require("neotest").setup({
+        adapters = {
+          require("neotest-vitest"),
+          require("neotest-python"),
+          require("neotest-rspec"),
+          require("neotest-go"),
+          require("neotest-jest")({
+            jestCommand = "yarn test --watchAll=false --passWithNoTests",
+            jestConfigFile = "custom.jest.config.ts",
+            env = {
+              CI = true,
+            },
+            cwd = function()
+              return vim.fn.getcwd()
+            end,
+          }),
+        },
+      })
+    end,
   },
 }
