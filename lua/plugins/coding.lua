@@ -105,6 +105,18 @@ return {
     build = "cd lua/fzy && make",
   },
 
+  -- Rust
+  {
+    "mrcjkb/rustaceanvim",
+    version = "^6",
+    lazy = false,
+    ["rust_analyzer"] = {
+      cargo = {
+        allFeatures = true,
+      },
+    },
+  },
+
   -- Test Runners
   {
     "nvim-neotest/neotest",
