@@ -10,10 +10,38 @@ return {
           auto_trigger = true,
           keymap = {
             accept = "<C-a>",
-            dismiss = "<M-l>",
+            accept_line = "<C-l>",
+            accept_word = "<C-w>",
+            prev = "<C-p>",
+            next = "<C-n>",
+            dismiss = "<C-d>",
           },
         },
-        panel = { enabled = false },
+        auto_refresh = true,
+        panel = { enabled = true },
+        server_opts_overrides = {
+          trace = "verbose",
+          settings = {
+            advanced = {
+              listCount = 10,
+              inlineSuggestCount = 3,
+            },
+          },
+        },
+      })
+
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "BlinkCmpMenuOpen",
+        callback = function()
+          vim.b.copilot_suggestion_hidden = true
+        end,
+      })
+
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "BlinkCmpMenuClose",
+        callback = function()
+          vim.b.copilot_suggestion_hidden = false
+        end,
       })
     end,
   },
