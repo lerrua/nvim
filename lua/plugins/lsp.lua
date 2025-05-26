@@ -3,7 +3,6 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      -- Automatically install LSPs and related tools to stdpath for neovim
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
       "WhoIsSethDaniel/mason-tool-installer.nvim",
@@ -17,8 +16,6 @@ return {
     config = function()
       vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
-        -- Create a function that lets us more easily define mappings specific LSP related items.
-        -- It sets the mode, buffer and description for us each time.
         callback = function(event)
           local map = function(keys, func, desc)
             vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
@@ -40,11 +37,7 @@ return {
             print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
           end, "[W]orkspace [L]ist Folders")
 
-          -- The following two autocommands are used to highlight references of the
-          -- word under your cursor when your cursor rests there for a little while.
-          --    See `:help CursorHold` for information about when this is executed
-          --
-          -- When you move your cursor, the highlights will be cleared (the second autocommand).
+          -- When move the cursor, the highlights will be cleared (the second autocommand).
           local client = vim.lsp.get_client_by_id(event.data.client_id)
           if client and client.server_capabilities.documentHighlightProvider then
             vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
@@ -61,7 +54,6 @@ return {
       })
 
       local capabilities = vim.lsp.protocol.make_client_capabilities()
-      -- Enable the following language servers
       local servers = {
         lua_ls = {},
         ts_ls = {
@@ -107,9 +99,6 @@ return {
         handlers = {
           function(server_name)
             local server = servers[server_name] or {}
-            -- This handles overriding only values explicitly passed
-            -- by the server configuration above. Useful when disabling
-            -- certain features of an LSP (for example, turning off formatting for tsserver)
             server.capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
             require("lspconfig")[server_name].setup(server)
           end,
