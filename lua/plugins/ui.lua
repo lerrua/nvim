@@ -1,7 +1,7 @@
 -- UI Components
 
 -- signs for diagnostics
--- local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 
 -- status mode
 local function custom_vim_mode()
@@ -142,12 +142,12 @@ return {
           component_separators = "",
           section_separators = { left = "", right = "" },
           globalstatus = true,
-          -- symbols = {
-          --   error = signs.Error,
-          --   warn = signs.Warn,
-          --   info = signs.Info,
-          --   hint = signs.Hint,
-          -- },
+          symbols = {
+            error = signs.Error,
+            warn = signs.Warn,
+            info = signs.Info,
+            hint = signs.Hint,
+          },
           colored = false,
         },
         sections = {
@@ -183,19 +183,6 @@ return {
           border = "rounded",
         },
       })
-    end,
-  },
-
-  -- Diagnostics
-  {
-    "folke/trouble.nvim",
-    keys = {
-      { "<F9>", "<CMD>Trouble diagnostics toggle<CR>", desc = "Diagnostics (Trouble)" },
-    },
-    lazy = false,
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require("trouble").setup()
     end,
   },
 
