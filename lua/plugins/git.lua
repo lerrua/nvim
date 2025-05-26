@@ -7,17 +7,20 @@ return {
       { "<leader>gb", ":Gitsigns blame_line<CR>", desc = "Git Blame" },
     },
     config = function()
-      require('gitsigns').setup()
+      require("gitsigns").setup()
     end,
+  },
+  {
+    "tpope/vim-fugitive",
   },
   {
     "NeogitOrg/neogit",
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "sindrets/diffview.nvim"
+      "sindrets/diffview.nvim",
     },
     config = function()
-      require('neogit').setup()
+      require("neogit").setup()
     end,
   },
   {
