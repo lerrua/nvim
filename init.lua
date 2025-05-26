@@ -1,9 +1,9 @@
 -- Set options and keymaps before loading plugins
-require("options")
-require("keymaps")
+require("config.options")
+require("config.keymaps")
 
 -- Initialize lazy.nvim and load plugins
-require("lazy-setup")
+require("config.lazy-setup")
 
 -- Set others configurations
-require("diagnostics")
+require("config.diagnostics")
