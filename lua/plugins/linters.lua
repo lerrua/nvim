@@ -1,5 +1,5 @@
--- Formatters and Linters
 return {
+  -- Formatters and Linters
   "nvimtools/none-ls.nvim",
   dependencies = {
     "williamboman/mason.nvim",
@@ -56,17 +56,4 @@ return {
       end,
     })
   end,
-
-  -- Diagnostics
-  {
-    "folke/trouble.nvim",
-    keys = {
-      { "<F9>", "<CMD>Trouble diagnostics toggle<CR>", desc = "Diagnostics (Trouble)" },
-    },
-    lazy = false,
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require("trouble").setup()
-    end,
-  },
 }
