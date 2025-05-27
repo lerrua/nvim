@@ -38,5 +38,5 @@ local opts = {
   },
 }
 
--- Setup Lazy
+-- Load plugins using lazy.nvim
 require("lazy").setup("plugins", opts)

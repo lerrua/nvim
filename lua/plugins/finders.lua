@@ -116,6 +116,9 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim",
     },
+    keys = {
+      { "<leader>f", "<CMD>GrugFar<CR>", desc = "Find Files with Grug Far" },
+    },
     config = function()
       require("grug-far").setup()
     end,
