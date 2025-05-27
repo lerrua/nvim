@@ -2,6 +2,9 @@ return {
   -- AI Assistants
   {
     "zbirenbaum/copilot.lua",
+    dependencies = {
+      "saghen/blink.cmp",
+    },
     cmd = "Copilot",
     event = "InsertEnter",
     config = function()
