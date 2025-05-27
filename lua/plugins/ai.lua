@@ -50,8 +50,16 @@ return {
   },
   {
     "yetone/avante.nvim",
-    branch = "main",
+    event = "VeryLazy",
+    version = false,
     build = "make",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "stevearc/dressing.nvim",
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
     config = function()
       require("avante_lib").load()
       require("avante").setup({
