@@ -13,9 +13,10 @@ return {
           notify = true,
           fidget = true,
           fzf = true,
-          copilot_vim = false,
-          lsp_trouble = false,
-          which_key = false,
+          copilot_vim = true,
+          lsp_trouble = true,
+          which_key = true,
+          telescope = true,
         },
         flavour = "auto", -- latte, frappe, macchiato, mocha
         background = {
