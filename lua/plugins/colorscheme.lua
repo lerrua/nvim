@@ -17,7 +17,11 @@ return {
           lsp_trouble = false,
           which_key = false,
         },
-        flavour = "macchiato", -- latte, frappe, macchiato, mocha
+        flavour = "auto", -- latte, frappe, macchiato, mocha
+        background = {
+          light = "latte",
+          dark = "macchiato",
+        },
         styles = {
           comments = { "italic" },
           strings = { "italic" },

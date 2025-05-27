@@ -42,3 +42,12 @@ map("n", "<F5>", "<CMD>bufdo e<CR>", opts)
 
 -- Open terminal in vertical split and enter insert mode
 map("n", "<leader>tv", "<CMD>vsp | term<CR>i", opts)
+
+-- Toggle light/dark mode
+map("n", "<leader>td", function()
+  if vim.o.background == "dark" then
+    vim.o.background = "light"
+  else
+    vim.o.background = "dark"
+  end
+end, opts)

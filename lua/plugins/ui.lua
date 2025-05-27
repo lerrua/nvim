@@ -276,7 +276,7 @@ return {
     end,
   },
 
-  -- Diagnostics
+  -- Diagnostics UI
   {
     "folke/trouble.nvim",
     keys = {
