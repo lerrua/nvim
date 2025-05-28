@@ -4,14 +4,12 @@ return {
     "lewis6991/gitsigns.nvim",
     event = "VeryLazy",
     keys = {
-      { "<leader>gb", ":Gitsigns blame_line<CR>", desc = "Git Blame" },
+      { "<leader>gbl", ":Gitsigns blame_line<CR>", desc = "Git Blame Line" },
+      { "<leader>gb",  ":Gitsigns blame<CR>",      desc = "Git Blame" },
     },
     config = function()
       require("gitsigns").setup()
     end,
-  },
-  {
-    "tpope/vim-fugitive",
   },
   {
     "NeogitOrg/neogit",
