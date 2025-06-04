@@ -56,17 +56,6 @@ return {
     end,
   },
   {
-    "m4xshen/autoclose.nvim",
-    config = function()
-      require("autoclose").setup({
-        options = {
-          disable_when_touch = true,
-          disable_filetype = { "TelescopePrompt", "vim" },
-        },
-      })
-    end,
-  },
-  {
     "folke/todo-comments.nvim",
     dependencies = "nvim-lua/plenary.nvim",
     config = function()
