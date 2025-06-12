@@ -4,6 +4,7 @@ return {
   dependencies = {
     "rafamadriz/friendly-snippets",
     "Kaiser-Yang/blink-cmp-avante",
+    "fang2hou/blink-copilot",
   },
   version = "1.*",
   opts = {
@@ -15,13 +16,20 @@ return {
       nerd_font_variant = "mono",
     },
 
-    completion = { documentation = { auto_show = false } },
+    completion = { documentation = { auto_show = true } },
     sources = {
-      default = { "avante", "lsp", "path", "snippets", "buffer" },
+      default = { "copilot", "avante", "lsp", "path", "snippets", "buffer" },
       providers = {
         avante = {
           module = "blink-cmp-avante",
           name = "Avante",
+          opts = {},
+        },
+        copilot = {
+          name = "copilot",
+          module = "blink-copilot",
+          score_offset = 100,
+          async = true,
           opts = {},
         },
       },

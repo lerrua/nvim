@@ -32,20 +32,6 @@ return {
           },
         },
       })
-
-      vim.api.nvim_create_autocmd("User", {
-        pattern = "BlinkCmpMenuOpen",
-        callback = function()
-          vim.b.copilot_suggestion_hidden = true
-        end,
-      })
-
-      vim.api.nvim_create_autocmd("User", {
-        pattern = "BlinkCmpMenuClose",
-        callback = function()
-          vim.b.copilot_suggestion_hidden = false
-        end,
-      })
     end,
   },
   {
@@ -64,8 +50,10 @@ return {
       require("avante_lib").load()
       require("avante").setup({
         provider = "copilot",
-        copilot = {
-          model = "claude-3.7-sonnet",
+        providers = {
+          copilot = {
+            model = "claude-4-sonnet",
+          },
         },
       })
     end,
