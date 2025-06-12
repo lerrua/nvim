@@ -61,6 +61,7 @@ local function custom_filetype()
     trouble = " Trouble",
     spectre_panel = "󱁴 Spectre Panel",
     toggleterm = " Floating Terminal",
+    NvMenu = "󰕕 Menu",
     ["gitsigns-blame"] = "󰊢 Git Blame",
   }
 
@@ -133,8 +134,8 @@ return {
         options = {
           theme = "catppuccin",
           icons_enabled = true,
-          component_separators = "",
-          section_separators = { left = "", right = "" },
+          section_separators = { left = "", right = "" },
+          component_separators = { left = "", right = "" },
           globalstatus = true,
           symbols = {
             error = signs.Error,
@@ -145,12 +146,26 @@ return {
           colored = false,
         },
         sections = {
-          lualine_a = { custom_vim_mode },
-          lualine_b = { "" },
+          lualine_a = {
+            { custom_vim_mode, separator = { left = "", right = "" }, left_padding = 1, right_padding = 2 },
+          },
+          lualine_b = {
+            {
+              "lsp_status",
+              -- icon = "󱥸 ",
+              icon = "",
+              symbols = {
+                spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" },
+                done = "✓",
+                separator = " ",
+              },
+              ignore_lsp = { "null-ls", "copilot" },
+            },
+          },
           lualine_c = { "" },
           lualine_x = { "diagnostics", custom_filetype },
           lualine_y = { "location" },
-          lualine_z = { "diff", "branch" },
+          lualine_z = { "diff", { "branch", separator = { left = "", right = "" }, left_padding = 2 } },
         },
       }
     end,
@@ -160,7 +175,20 @@ return {
   {
     "lukas-reineke/indent-blankline.nvim",
     config = function()
-      require("ibl").setup()
+      require("ibl").setup {
+        indent = {
+          char = "▏",
+          tab_char = "▏",
+        },
+        scope = {
+          enabled = true,
+          show_start = false,
+          show_end = false,
+        },
+        exclude = {
+          filetypes = { "help", "lazy", "mason", "TelescopePrompt", "toggleterm" },
+        },
+      }
     end,
   },
 

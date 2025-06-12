@@ -22,6 +22,7 @@ vim.opt.hlsearch = true
 vim.opt.history = 1000
 vim.opt.ignorecase = true
 vim.opt.incsearch = true
+vim.opt.swapfile = false
 
 vim.opt.backspace = "2"
 vim.opt.showcmd = true
@@ -44,9 +45,9 @@ vim.opt.mouse = "a"
 
 -- Cursor shape
 -- vim.opt.gcr = 'n-v:block,i-c-ci-ve:blinkoff500-blinkon500-block,r-cr-o:hor20'
-vim.opt.gcr:append("n-v:block-Cursor/lCursor")
-vim.opt.gcr:append("i-c-ci-ve:blinkoff500-blinkon500-block-TermCursor/lCursor")
-vim.opt.gcr:append("r-cr:hor20,o:hor50")
+-- vim.opt.gcr:append("n-v:block-Cursor/lCursor")
+-- vim.opt.gcr:append("i-c-ci-ve:blinkoff500-blinkon500-block-TermCursor/lCursor")
+-- vim.opt.gcr:append("r-cr:hor20,o:hor50")
 
 vim.opt.syntax = "enable"
 vim.opt.signcolumn = "yes"
