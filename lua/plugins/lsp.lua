@@ -74,6 +74,16 @@ return {
             },
           },
         },
+        ruby_lsp = {
+          settings = {
+            ruby = {
+              useBundler = true,
+              diagnostics = {
+                rubocop = true,
+              },
+            },
+          },
+        },
         eslint = {},
         tailwindcss = {},
         rust_analyzer = {},
