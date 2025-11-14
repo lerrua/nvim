@@ -106,7 +106,7 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       require("bufferline").setup({
-        highlights = require("catppuccin.groups.integrations.bufferline").get_theme(),
+        highlights = require("catppuccin.groups.integrations.bufferline").get(),
         options = {
           color_icons = false,
           separator_style = "slant",
