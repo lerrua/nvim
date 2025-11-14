@@ -4,14 +4,14 @@ return {
     "nvim-telescope/telescope.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     keys = {
-      { "<space>e",       "<CMD>Telescope find_files<CR>",         desc = "Find Files" },
-      { "<space><space>", "<CMD>Telescope oldfiles<CR>",           desc = "Old Files" },
-      { "<space>f",       "<CMD>Telescope live_grep<CR>",          desc = "Live Grep" },
-      { "<space>fg",      "<CMD>Telescope grep_string<CR>",        desc = "Grep String" },
-      { "<space>b",       "<CMD>Telescope buffers<CR>",            desc = "Buffers" },
-      { "<space>t",       "<CMD>Telescope help_tags<CR>",          desc = "Help Tags" },
-      { "<F3>",           "<CMD>Telescope file_browser<CR>",       desc = "File Browser" },
-      { "<space>g",       require("telescope.builtin").git_status, desc = "Search [G]it modified files" },
+      { "<space>e", "<CMD>Telescope find_files<CR>", desc = "Find Files" },
+      { "<space><space>", "<CMD>Telescope oldfiles<CR>", desc = "Old Files" },
+      { "<space>f", "<CMD>Telescope live_grep<CR>", desc = "Live Grep" },
+      { "<space>fg", "<CMD>Telescope grep_string<CR>", desc = "Grep String" },
+      { "<space>b", "<CMD>Telescope buffers<CR>", desc = "Buffers" },
+      { "<space>t", "<CMD>Telescope help_tags<CR>", desc = "Help Tags" },
+      { "<F3>", "<CMD>Telescope file_browser<CR>", desc = "File Browser" },
+      { "<space>g", require("telescope.builtin").git_status, desc = "Search [G]it modified files" },
     },
     config = function()
       require("telescope").setup({
@@ -119,7 +119,10 @@ return {
       { "<leader>f", "<CMD>GrugFar<CR>", desc = "Find Files with Grug Far" },
     },
     config = function()
-      require("grug-far").setup()
+      require("grug-far").setup({
+        windowCreationCommand = "80 vsplit",
+        openTargetWindow = { preferredLocation = "prev" },
+      })
     end,
   },
 
