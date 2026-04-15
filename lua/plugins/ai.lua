@@ -1,39 +1,4 @@
 return {
-  -- AI Assistants
-  {
-    "zbirenbaum/copilot.lua",
-    dependencies = {
-      "saghen/blink.cmp",
-    },
-    cmd = "Copilot",
-    event = "InsertEnter",
-    config = function()
-      require("copilot").setup({
-        suggestion = {
-          auto_trigger = true,
-          keymap = {
-            accept = "<C-a>",
-            accept_line = "<C-l>",
-            accept_word = "<C-w>",
-            prev = "<C-p>",
-            next = "<C-n>",
-            dismiss = "<C-d>",
-          },
-        },
-        auto_refresh = true,
-        panel = { enabled = true },
-        server_opts_overrides = {
-          trace = "verbose",
-          settings = {
-            advanced = {
-              listCount = 10,
-              inlineSuggestCount = 3,
-            },
-          },
-        },
-      })
-    end,
-  },
   {
     "yetone/avante.nvim",
     event = "VeryLazy",
