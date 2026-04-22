@@ -3,8 +3,9 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
+    branch = "main",
     config = function()
-      require("nvim-treesitter.configs").setup {
+      require("nvim-treesitter").setup {
         ensure_installed = {
           "lua",
           "luadoc",
@@ -26,8 +27,6 @@ return {
           "elixir",
           "json",
           "javascript",
-          "markdown",
-          "markdown_inline",
           "vim",
           "vimdoc",
           "vue",
@@ -36,14 +35,7 @@ return {
           "terraform",
           "proto",
         },
-        sync_install = false,
         auto_install = true,
-        highlight = {
-          enable = true,
-        },
-        indent = {
-          enable = true,
-        },
       }
     end,
   },

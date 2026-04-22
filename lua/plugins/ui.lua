@@ -186,7 +186,7 @@ return {
           show_end = false,
         },
         exclude = {
-          filetypes = { "help", "lazy", "mason", "TelescopePrompt", "toggleterm" },
+          filetypes = { "help", "lazy", "mason", "TelescopePrompt", "toggleterm", "markdown" },
         },
       }
     end,
@@ -205,14 +205,6 @@ return {
           border = "rounded",
         },
       })
-    end,
-  },
-
-  -- Markdown render
-  {
-    "MeanderingProgrammer/render-markdown.nvim",
-    config = function()
-      require("render-markdown").setup()
     end,
   },
   {
@@ -280,8 +272,8 @@ return {
       require("noice").setup({
         lsp = {
           override = {
-            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-            ["vim.lsp.util.stylize_markdown"] = true,
+            -- ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+            -- ["vim.lsp.util.stylize_markdown"] = true,
             ["cmp.entry.get_documentation"] = true,
           },
         },
