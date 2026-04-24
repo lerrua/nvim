@@ -34,7 +34,16 @@ return {
           types = { "italic" },
         },
       }
-      vim.cmd.colorscheme "catppuccin-macchiato"
+      -- vim.cmd.colorscheme "catppuccin-macchiato"
+    end,
+  },
+  {
+    "e-ink-colorscheme/e-ink.nvim",
+    priority = 1000,
+    config = function()
+      require("e-ink").setup()
+      vim.opt.background = "light"
+      vim.cmd.colorscheme "e-ink"
     end,
   },
 }

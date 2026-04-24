@@ -17,7 +17,7 @@ local opts = {
     lazy = false,
   },
   install = {
-    colorscheme = { "catppuccin" },
+    -- colorscheme = { "catppuccin" },
   },
   ui = {
     border = "rounded",
