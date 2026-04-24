@@ -107,9 +107,14 @@ return {
     config = function()
       require("bufferline").setup({
         -- highlights = require("catppuccin.groups.integrations.bufferline").get(),
+        highlights = {
+          fill = {
+            bg = "#333333",
+          },
+        },
         options = {
           color_icons = false,
-          separator_style = "slant",
+          separator_style = "thick",
           diagnostics = "nvim_lsp",
           offsets = {
             {
